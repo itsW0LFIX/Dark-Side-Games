@@ -1,0 +1,202 @@
+/* General styles (Desktop/Large screens) */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  background-image: url('/501c82db-88cb-43df-bc4d-0ac9044fb640.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* height: 95vh; */
+  position: relative;
+  color: #fff;
+}
+
+/* Container for the timer and counter */
+.container {
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  background-color: rgba(249, 249, 249, 0.8); /* Semi-transparent background */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px); /* Blur effect for the container */
+}
+
+/* Adjust for Tablet Screens */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 10px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  #timer {
+    font-size: 2rem;
+  }
+}
+
+/* Adjust for Phone Screens */
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+    padding: 8px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  #timer {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .counter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .counter-buttons button {
+    flex: 1 1 30%;
+    margin: 5px;
+  }
+}
+
+/* Header and timer styles */
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#timer {
+  font-size: 48px;
+  font-weight: bold;
+  color: #333; /* Bright blue timer color */
+  margin-bottom: 20px;
+}
+
+.preset-buttons, .custom-time, .control-buttons {
+  margin-bottom: 15px;
+}
+
+button {
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.preset-buttons button {
+  background: #2196f3;
+  color: white;
+}
+
+#start {
+  background: #4caf50;
+}
+
+#pause {
+  background: #ff9800;
+}
+
+#reset {
+  background: #f44336;
+}
+
+.control-buttons button {
+  color: white;
+}
+
+input {
+  font-size: 16px;
+  padding: 8px;
+  margin: 5px;
+  width: 80px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Account Counter Styles */
+.container #account-counter {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #555;
+}
+
+.counter-buttons button {
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.counter-buttons button:hover {
+  background-color: #ddd;
+}
+
+.counter-buttons #increment {
+  background-color: #4caf50;
+  color: white;
+}
+
+.counter-buttons #decrement {
+  background-color: #f44336;
+  color: white;
+}
+
+.counter-buttons #reset-counter {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Logo animation (optional) */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Shake animation */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 500ms ease;
+}
