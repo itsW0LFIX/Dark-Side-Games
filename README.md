@@ -13,16 +13,16 @@ The project consists of the following files:
 - `index.html`: The home page that provides access to all the games.
 - `Countdown_Time.html`: HTML page that displays the Countdown Timer.
 - `casino_roulette.html`: HTML page that presents the casino roulette game.
+ 
+## Hosted Link
 
-## Features
+You can access the game here: [HERE](https://dark-side-games.web.app/)
 
-- **Countdown Timer**: A countdown timer that can be customized for various purposes.
-- **Casino Roulette**: A fun roulette game for playing with virtual bets and chances.
-- **Wheel of Names**: A wheel spinner that randomly selects a name from the list.
+## Games Available
 
-## How to Run
-
-To run this project, simply open the `index.html` file in your browser. The home page provides links to all available games and sections.
+- Countdown Timer
+- Casino Roulette
+- Roulette of Names
 
 ### Requirements
 
@@ -45,6 +45,3 @@ To run this project, simply open the `index.html` file in your browser. The home
 
 Stay tuned for more exciting games coming soon!
 
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
