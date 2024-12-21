@@ -13,6 +13,7 @@ The project consists of the following files:
 - `index.html`: The home page that provides access to all the games.
 - `Countdown_Time.html`: HTML page that displays the Countdown Timer.
 - `casino_roulette.html`: HTML page that presents the casino roulette game.
+- `NumberMatch.html`: HTML page that presents the Number Match.
  
 ## Hosted Link
 
@@ -23,6 +24,7 @@ You can access the game here: [HERE](https://dark-side-games.web.app/)
 - Countdown Timer
 - Casino Roulette
 - Roulette of Names
+- Number Match
 
 ### Requirements
 
@@ -35,6 +37,7 @@ You can access the game here: [HERE](https://dark-side-games.web.app/)
 2. **Countdown Timer**: Set the timer and let it count down to zero for your specific event.
 3. **Casino Roulette**: Play the casino-style roulette by placing bets and spinning the wheel.
 4. **Wheel of Names**: Add your list of names and spin the wheel to randomly pick a winner.
+5. **Number Match**: 
 
 ## Contributors
 
