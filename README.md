@@ -47,6 +47,7 @@ You can access the games here: [HERE](https://dark-side-games.web.app/)
 - Casino Roulette
 - Roulette of Names
 - Number Match
+- Smart Score
 
 ### Requirements
 
