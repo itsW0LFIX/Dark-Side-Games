@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheel of Names</title>
+<link rel="stylesheet" href="roulette.css">
+</head>
+<body>
+    <div class="mask" id="mask"></div>
+
+    <div class="container">
+        <div class="wheel-container">
+            <div class="pointer"></div>
+            <div class="pointero" onclick="spinWheel()" style="cursor: pointer;"></div>
+            <canvas id="wheelCanvas" width="400" height="400" onclick="spinWheel()" style="cursor: pointer;"></canvas>
+            <!-- <button class="spin-button" id="spinBtn" onclick="spinWheel()" disabled>Spin</button> -->
+        </div>
+
+        <div class="input-section">
+            <div class="input-container">
+                <textarea 
+                    id="nameInput" 
+                    placeholder="Type names"
+                    oninput="handleNameInput()"
+                ></textarea>
+            </div>
+            
+            
+            
+
+        </div>
+    </div>
+
+    <!-- Winner Popup -->
+    <div class="winner-popup" id="winnerPopup">
+        <h3>The winner is:</h3>
+        <p id="winnerName"></p>
+        <button onclick="removeWinner()">Delete</button>
+        <button class="close-btn" onclick="closeWinnerPopup()">Close</button>
+        <button id="deleteAllBtn" onclick="removeAllSimilarNames()">Delete All Similar</button>
+    </div>
+
+<script src="roulette.js"></script>   
+</body>
+</html>
+<!-- 1 -->

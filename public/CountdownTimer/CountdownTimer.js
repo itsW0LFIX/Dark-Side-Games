@@ -17,43 +17,44 @@ function updateTimerDisplay() {
   const minutes = Math.floor(timeRemaining / 60);
   const seconds = timeRemaining % 60;
 
-  timerElement.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+  timerElement.textContent = `${String(minutes).padStart(2, "0")}:${String(
+    seconds
+  ).padStart(2, "0")}`;
 }
 
 function startTimer() {
-    if (isRunning) return;
-  
-    // If no time is set, try to read custom inputs
-    if (timeRemaining <= 0) {
-      // Show '00:00' with red color and move left and right
-      timerElement.textContent = "00:00";
-      timerElement.style.color = "red"; // Red color
-      timerElement.classList.add("shake"); // Add shake animation class
-  
-      // Reset the animation after it's completed and reset color
-      setTimeout(() => {
-        timerElement.classList.remove("shake"); // Remove shake class
-        timerElement.style.color = "#333"; // Reset color back to default
-      }, 1000); // Remove shake after 1 second (adjust as needed)
-  
-      return; // Prevent starting the timer
-    }
-  
-    isRunning = true;
-    disableButton(startButton); // Disable start button
-    disableInputFields(); // Disable custom time inputs
-    enableCounterButtons(); // Enable counter buttons when timer starts
-    timer = setInterval(() => {
-      if (timeRemaining > 0) {
-        timeRemaining--;
-        updateTimerDisplay();
-      } else {
-        clearInterval(timer);
-        endCountdown();
-      }
-    }, 1000);
+  if (isRunning) return;
+
+  // If no time is set, try to read custom inputs
+  if (timeRemaining <= 0) {
+    // Show '00:00' with red color and move left and right
+    timerElement.textContent = "00:00";
+    timerElement.style.color = "red"; // Red color
+    timerElement.classList.add("shake"); // Add shake animation class
+
+    // Reset the animation after it's completed and reset color
+    setTimeout(() => {
+      timerElement.classList.remove("shake"); // Remove shake class
+      timerElement.style.color = "#333"; // Reset color back to default
+    }, 1000); // Remove shake after 1 second (adjust as needed)
+
+    return; // Prevent starting the timer
   }
-  
+
+  isRunning = true;
+  disableButton(startButton); // Disable start button
+  disableInputFields(); // Disable custom time inputs
+  enableCounterButtons(); // Enable counter buttons when timer starts
+  timer = setInterval(() => {
+    if (timeRemaining > 0) {
+      timeRemaining--;
+      updateTimerDisplay();
+    } else {
+      clearInterval(timer);
+      endCountdown();
+    }
+  }, 1000);
+}
 
 function pauseTimer() {
   clearInterval(timer);
@@ -73,7 +74,7 @@ function resetTimer() {
   customMinutesInput.value = ""; // Clear input fields
   customSecondsInput.value = "";
   enableInputFields(); // Enable custom time inputs
-  
+
   // Reset account counter when the timer is reset
   accountCounter = 0; // Reset the account counter
   updateAccountCounter(); // Update the display of the account counter
@@ -107,11 +108,23 @@ function enableButton(button) {
 }
 
 function disableAllButtons() {
-  [startButton, pauseButton, ...presetButtons, incrementButton, decrementButton].forEach(disableButton);
+  [
+    startButton,
+    pauseButton,
+    ...presetButtons,
+    incrementButton,
+    decrementButton,
+  ].forEach(disableButton);
 }
 
 function enableAllButtons() {
-  [startButton, pauseButton, ...presetButtons, incrementButton, decrementButton].forEach(enableButton);
+  [
+    startButton,
+    pauseButton,
+    ...presetButtons,
+    incrementButton,
+    decrementButton,
+  ].forEach(enableButton);
 }
 
 // Disable Input Fields
@@ -179,7 +192,7 @@ decrementButton.addEventListener("click", () => {
     accountCounter--;
     updateAccountCounter();
   } else {
-   // alert("Counter can't go below 0!");
+    // alert("Counter can't go below 0!");
   }
 });
 
@@ -193,7 +206,8 @@ customMinutesInput.addEventListener("input", updateCustomTime);
 customSecondsInput.addEventListener("input", updateCustomTime);
 
 function updateCustomTime() {
-  if (!isRunning) { // Only update if the timer is not running
+  if (!isRunning) {
+    // Only update if the timer is not running
     const customMinutes = parseInt(customMinutesInput.value, 10) || 0;
     const customSeconds = parseInt(customSecondsInput.value, 10) || 0;
     timeRemaining = customMinutes * 60 + customSeconds;

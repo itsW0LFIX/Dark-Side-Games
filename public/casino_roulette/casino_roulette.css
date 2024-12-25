@@ -1,0 +1,316 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-image: url("casino_roulette.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation: gradientBG 15s ease infinite;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+  z-index: -1; /* Keeps it behind all content */
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.out-wrapper {
+  content: "";
+  width: calc(85vh + 10px);
+  height: calc(85vh + 10px);
+  border: 10px solid rgb(255, 255, 255);
+  border-radius: 42.5vh;
+  position: absolute;
+  box-sizing: border-box;
+  left: calc(50vw - 42.5vh - 5px);
+  top: calc(50vh - 42.5vh - 5px);
+  z-index: 99;
+  box-shadow: 0 0 5px #555;
+}
+.out-circle {
+  width: 85vh;
+  height: 85vh;
+  border-radius: 42.5vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  left: calc(50vw - 42.5vh);
+  top: calc(50vh - 42.5vh);
+  z-index: 80;
+}
+
+.mid-circle {
+  width: 70vh;
+  height: 70vh;
+  border-radius: 35vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  background: #eee;
+  z-index: 80;
+}
+
+.mid-circle::after {
+  content: "";
+  width: calc(70vh + 10px);
+  height: calc(70vh + 10px);
+  border: 10px solid white;
+  border-radius: 35vh;
+  position: absolute;
+  box-sizing: border-box;
+  left: -5px;
+  top: -5px;
+  z-index: 80;
+  box-shadow: 0 0 4px #555;
+}
+
+.num-circle {
+  width: 50vh;
+  height: 50vh;
+  border-radius: 25vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  left: calc(50vw - 25vh);
+  top: calc(50vh - 25vh);
+  z-index: 81;
+}
+
+.num-circle::after {
+  content: "";
+  width: calc(50vh + 5px);
+  height: calc(50vh + 5px);
+  border: 5px solid white;
+  border-radius: 25vh;
+  position: absolute;
+  box-sizing: border-box;
+  left: -2.5px;
+  top: -2.5px;
+  z-index: 81;
+  box-shadow: 0 0 5px #00436d;
+}
+
+.inside-circle {
+  width: 40vh;
+  height: 40vh;
+  border-radius: 20vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  left: calc(50vw - 20vh);
+  top: calc(50vh - 20vh);
+  z-index: 82;
+}
+
+.inside-circle::after {
+  content: "";
+  width: calc(40vh + 5px);
+  height: calc(40vh + 5px);
+  border: 5px solid white;
+  border-radius: 20vh;
+  position: absolute;
+  box-sizing: border-box;
+  left: -2.5px;
+  top: -2.5px;
+  z-index: 82;
+  box-shadow: 0 0 5px #00436d;
+}
+
+.target {
+  width: calc(20vh + 10px);
+  height: calc(20vh + 10px);
+  border: 10px solid #ce4e4e;
+  border-radius: calc(10vh + 5px);
+  position: absolute;
+  box-sizing: border-box;
+  left: calc(50vw - 10vh - 5px);
+  top: calc(50vh - 10vh - 5px);
+  z-index: 90;
+  background: white;
+  box-shadow: 0 0 5px #555;
+  font-size: 56px;
+  text-shadow: 2px 2px 7px #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell {
+  border-right: 42.5vh solid rgba(27, 48, 104);
+  border-top: calc(42.5vh * 3.14 / 22) solid transparent;
+  border-bottom: calc(42.5vh * 3.14 / 22) solid transparent;
+  position: absolute;
+  transform-origin: 0 50%;
+}
+
+.cellb {
+  border-right: 42.5vh solid rgb(21, 94, 203);
+  border-top: calc(42.5vh * 3.14 / 22) solid transparent;
+  border-bottom: calc(42.5vh * 3.14 / 22) solid transparent;
+  position: absolute;
+  transform-origin: 0 50%;
+}
+
+.mid-cell {
+  border-right: 35vh solid rgba(27, 48, 104, 0.85);
+  border-top: calc(35vh * 3.14 / 22) solid transparent;
+  border-bottom: calc(35vh * 3.14 / 22) solid transparent;
+  position: absolute;
+  transform-origin: 0 50%;
+}
+
+.mid-cellb {
+  border-right: 35vh solid rgba(46, 146, 141, 0.8);
+  border-top: calc(35vh * 3.14 / 22) solid transparent;
+  border-bottom: calc(35vh * 3.14 / 22) solid transparent;
+  position: absolute;
+  transform-origin: 0 50%;
+}
+
+.num-cell {
+  border-right: 25vh solid rgb(32, 178, 170);
+  border-top: calc(25vh * 3.14 / 22) solid transparent;
+  border-bottom: calc(25vh * 3.14 / 22) solid transparent;
+  position: absolute;
+  transform-origin: 0 50%;
+}
+
+.num-cellb {
+  border-right: 25vh solid rgb(21, 94, 203);
+  border-top: calc(25vh * 3.14 / 22) solid transparent;
+  border-bottom: calc(25vh * 3.14 / 22) solid transparent;
+  position: absolute;
+  transform-origin: 0 50%;
+}
+
+.inside-cell {
+  border-right: 20vh solid rgb(43, 61, 112);
+  border-top: calc(20vh * 3.14 / 22) solid transparent;
+  border-bottom: calc(20vh * 3.14 / 22) solid transparent;
+  position: absolute;
+  transform-origin: 0 50%;
+}
+
+.inside-cellb {
+  border-right: 20vh solid rgba(46, 146, 141, 0.8);
+  border-top: calc(20vh * 3.14 / 22) solid transparent;
+  border-bottom: calc(20vh * 3.14 / 22) solid transparent;
+  position: absolute;
+  transform-origin: 0 50%;
+}
+
+hr {
+  height: 1px;
+  width: 42.25vh;
+  background: #00cdda;
+  border: 0;
+  position: absolute;
+  transform-origin: 0 50%;
+  z-index: 99;
+  right: 0;
+  left: 20vh;
+  box-shadow: 0px 0px 3px #555;
+}
+
+#mask {
+  display: none;
+  border-right-color: hsla(5, 90%, 50%, 0.9);
+  z-index: 80;
+}
+
+#midmask {
+  display: none;
+  border-right-color: hsla(5, 75%, 45%, 0.9);
+  z-index: 80;
+}
+#nummask {
+  display: none;
+  border-right-color: hsla(5, 65%, 45%, 0.9);
+  z-index: 80;
+}
+
+#insidemask {
+  display: none;
+  border-right-color: hsla(5, 60%, 40%, 0.9);
+  z-index: 80;
+}
+
+.name-card {
+  width: 50px;
+  height: 100px;
+  transform-origin: calc((42.5vh - 55px) * -1);
+  position: absolute;
+  right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.name-card .name {
+  transform: rotate(90deg);
+  text-align: center;
+  font-size: 24px;
+  text-shadow: 0 0 5px 555;
+  color: white;
+}
+
+.seat-card {
+  width: 40px;
+  height: 80px;
+  transform-origin: calc((25vh - 40px) * -1);
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.seat-card .seat {
+  transform: rotate(90deg);
+  text-align: center;
+  font-size: 20px;
+  text-shadow: 0 0 5px 555;
+  color: white;
+}
+.notclick {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  z-index: 999;
+  display: none;
+}

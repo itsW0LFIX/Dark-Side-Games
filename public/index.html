@@ -1,137 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dark Side Games - Home</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<style>
-    /* General styles (both pages) */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-  background-image: url('/501c82db-88cb-43df-bc4d-0ac9044fb640.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  height: 100vh;
-  position: relative;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-/* Container for both pages */
-.container {
-  margin: 20px auto;
-  padding: 30px;
-  border: 2px solid #fff;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 800px;
-  text-align: center;
-  background-color: rgba(249, 249, 249, 0.85);
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 80%; /* Keep container height constant */
-  overflow: auto; /* Allow scrolling if content exceeds the container height */
-}
-
-/* Title */
-h1 {
-  margin-bottom: 20px;
-  color: #fff;
-  font-size: 2.5rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-}
-
-/* Sections */
-.section {
-  margin-bottom: 30px;
-  width: 100%;
-}
-
-h2 {
-  font-size: 1.8rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.5;
-}
-
-/* Button */
-a.button {
-  display: inline-block;
-  padding: 15px 30px;
-  margin: 10px 0;
-  background-color: #4CAF50;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  text-align: center;
-  cursor: pointer;
-  font-size: 1.2rem;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-a.button:hover {
-  background-color: #45a049;
-  transform: scale(1.05);
-}
-
-a.button:active {
-  background-color: #388e3c;
-  transform: scale(1);
-}
-
-</style>
-
-<body>
-
-  <div class="container">
-    <h1>Welcome to Dark Side Games</h1>
-
-    <div class="section" id="countdown-section">
-      <h2>Countdown Timer</h2>
-      <a href="Countdown_Time.html" class="button">Go to Countdown Timer</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark Side Games - Home</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="#countdown-section">Countdown</a>
+      <a href="#casino-section">Casino</a>
+      <a href="#roulette-section">Roulette</a>
+      <a href="#number-match">Number Match</a>
+      <a href="#smart-polls">Smart Polls</a>
     </div>
 
-    <div class="section" id="roulit-section">
-      <h2>casino roulette</h2>
-      <a href="casino_roulette.html" class="button">Play casino roulette</a>
-    </div>
+    <div class="container">
+      <h1>Welcome to Dark Side Games</h1>
 
-    <div class="section" id="roulit-section">
-      <h2>roulette</h2>
-      <a href="roulette.html" class="button">roulette of names</a>
-    </div>
+      <div class="section" id="countdown-section">
+        <h2>Countdown Timer</h2>
+        <p>Test your timing skills with our exciting countdown game!</p>
+        <a href="CountdownTimer/Countdown_Time.html" class="button"
+          >Start Countdown</a
+        >
+      </div>
 
-    <div class="section" id="roulit-section">
-      <h2>Number Match</h2>
-      <a href="NumberMatch.html" class="button">SCARF CASINO</a>
-    </div>
+      <div class="section" id="casino-section">
+        <h2>Casino Roulette</h2>
+        <p>Spin the wheel and test your luck in the casino!</p>
+        <a href="casino_roulette/casino_roulette.html" class="button"
+          >Play Casino</a
+        >
+      </div>
 
-    <div class="section">
-      <h2>More Games Soon...</h2>
-      <p>Stay tuned for more exciting games coming soon!</p>
-    </div>
-  </div>
+      <div class="section" id="roulette-section">
+        <h2>Roulette of Names</h2>
+        <p>Let the wheel decide the winner for you!</p>
+        <a href="roulette/roulette.html" class="button">Spin Roulette</a>
+      </div>
 
-</body>
+      <div class="section" id="number-match">
+        <h2>Number Match</h2>
+        <p>Can you match the numbers in record time?</p>
+        <a href="NumberMatch/NumberMatch.html" class="button">Play Now</a>
+      </div>
+
+      <div class="section" id="smart-polls">
+        <h2>Smart Score</h2>
+        <p>Smart decisions start here. Try it now!</p>
+        <a href="SmartScore/SmartScore.html" class="button">Smart Score</a>
+      </div>
+    </div>
+  </body>
 </html>
-
-<!-- 1 -->

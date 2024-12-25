@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Score</title>
+    <link rel="stylesheet" href="SmartScore.css">
+
+</head>
+<body>
+    <header>
+        <h1>SmartScore</h1>
+    </header>
+
+    <main>
+        <!-- Button to Create Event Score -->
+        <button id="create-poll-btn">Create Event Score</button>
+    
+        <!-- Poll Form (Initially Hidden) -->
+        <div id="poll-form" style="display: none;">
+            <h2 class="poll-title">Create Your Event Score</h2>
+            <input type="text" id="poll-question" placeholder="Enter your Event name" required>
+            <ul class="poll-options">
+                <li>
+                    <input type="text" class="poll-option" placeholder="Option 1" required>
+                </li>
+                <li>
+                    <input type="text" class="poll-option" placeholder="Option 2" required>
+                </li>
+            </ul>
+            <button class="add-option-btn">Add Option</button>
+    
+            <div>
+                <label for="poll-timer">Set Timer (seconds): </label>
+                <input type="number" id="poll-timer" min="1" placeholder="Enter time" disabled>
+                <label for="use-timer-checkbox">
+                    <input type="checkbox" id="use-timer-checkbox"> Use Timer
+                </label>
+            </div>
+    
+            <button id="start-poll-btn">Start Event Score</button>
+        </div>
+        
+        <!-- Poll Display Section (Initially Hidden) -->
+        <div id="poll-display" style="display: none;">
+            <h2 id="display-question"></h2>
+            <ul id="display-options"></ul>
+            <div id="poll-winner" class="poll-winner"></div>
+            <div class="timer" id="timer-display"></div>
+            <button id="finish-poll-btn" style="display: none;">Finish Poll</button>
+        </div>
+    </main>
+     
+
+
+
+<script src="SmartScore.js"></script>
+</body>
+</html>

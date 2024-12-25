@@ -1,0 +1,334 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Make sure the body takes up the full height of the viewport */
+  margin: 0;
+  background-image: url("b1.png"); /* Background Image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  gap: 20px;
+  padding: 40px;
+  max-width: 600px; /* Adjust width as needed */
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  margin-top: 10px;
+}
+
+/* Winning Numbers Section */
+.winning-numbers-container {
+  flex: 1;
+  background-color: #e9f5ff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.winning-numbers-container input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  margin-bottom: 10px;
+  transition: border-color 0.3s ease;
+}
+
+.winning-numbers-container input:focus {
+  border-color: #007bff;
+}
+
+.winning-number {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bolder;
+  display: inline-block;
+  margin-right: 10px;
+  text-align: center; /* Ensure the text is centered within each .winning-number */
+}
+
+#winning-numbers-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers the .winning-number elements horizontally */
+  gap: 10px; /* Adds space between the numbers */
+  margin-top: 20px; /* Adds space from the top */
+}
+
+/* Participants Section */
+.input-section {
+  flex: 1;
+  padding: 20px;
+  background-color: rgba(249, 249, 249, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input-section textarea {
+  width: 100%;
+  height: 150px;
+  /* padding: 10px; */
+  margin-left: -5px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  resize: none;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-section textarea:focus {
+  border-color: #007bff;
+}
+
+.input-section button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.input-section button:hover {
+  background-color: #0056b3;
+}
+
+/* Results Section */
+.results-section {
+  width: 120%;
+  margin-top: 20px;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 300px; /* Limit height for scrolling */
+  background-color: rgba(255, 255, 255, 0.63); /* Semi-transparent background */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.prize {
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* Apply red color to 'Loser' prize */
+.prize.Loser {
+  color: red; /* Red color for Loser */
+}
+
+/* Popup and Mask */
+.mask {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.winner-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  z-index: 3;
+}
+
+.winner-popup button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.winner-popup button.close-btn {
+  background-color: #d50f25;
+}
+
+.winner-popup button.close-btn:hover {
+  background-color: #b94b44;
+}
+
+.header button {
+  background: white;
+  color: #007bff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.header button:hover {
+  background: #e6e6e6;
+}
+
+.prize {
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* Overlay to dim the background when modal is open */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 999;
+}
+
+/* Modal container styles */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px; /* Reduced width */
+  max-width: 90%;
+  z-index: 1000;
+  display: none;
+}
+
+/* Modal heading */
+.modal h2 {
+  text-align: center;
+  margin-bottom: 15px; /* Reduced space */
+  font-size: 18px; /* Smaller font */
+  color: #333;
+}
+
+/* Input fields styling with red text */
+
+textarea {
+  color: red;
+}
+input[type="text"] {
+  color: red; /* Set text color to red */
+}
+
+.modal input[type="text"] {
+  width: 100%;
+  padding: 8px; /* Reduced padding */
+  margin-left: -10px;
+  font-size: 14px; /* Smaller font */
+  margin-top: 5px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  color: red; /* Set text color to red */
+}
+
+/* Ensure the text stays red even on focus */
+.modal input[type="text"]:focus {
+  border-color: #007bff;
+  color: red; /* Maintain red color when focused */
+}
+
+/* Label styling for consistency */
+.modal label {
+  display: block;
+  margin-bottom: 8px; /* Reduced space */
+  font-size: 14px; /* Smaller font */
+  color: #333;
+}
+
+/* Buttons styling */
+.modal button {
+  width: 100%;
+  padding: 8px; /* Reduced padding */
+  font-size: 14px; /* Smaller font */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effects */
+.modal button:hover {
+  background-color: #0056b3;
+}
+
+/* Close button specific styling */
+.modal button:nth-child(2) {
+  background-color: #d50f25;
+}
+
+.modal button:nth-child(2):hover {
+  background-color: #b94b44;
+}
+
+/* Show the modal and overlay when triggered */
+.overlay.active,
+.modal.active {
+  display: block;
+}
+.prize.Loser {
+  color: red; /* Red color for Loser */
+}

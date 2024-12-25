@@ -1,0 +1,193 @@
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-image: url('roulette.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation: gradientBG 15s ease infinite;
+  overflow-x: hidden;
+}
+  body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+  z-index: -1; /* Keeps it behind all content */
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Align input-section to the left and wheel in the center */
+    align-items: center;
+    width: 80%; /* Adjust width of the container */
+    max-width: 1200px; /* Prevent container from getting too wide */
+}
+
+.wheel-container {
+    position: relative;
+    flex-grow: 1; /* Let the wheel take up the available space */
+    display: flex;
+    justify-content: center;
+    max-width: 600px; /* Limit the wheel size */
+    
+}
+
+.pointer {
+    position: absolute;
+    top: 47%;
+    left: 90%;
+    transform: translateX(-50%) rotate(180deg);
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 30px solid rgb(202, 16, 16);
+    z-index: 1;
+}
+
+.pointero {
+    position: absolute;
+    top: 49.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px; /* Increased size */
+    height: 80px; /* Increased size */
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.233);
+    z-index: 2;
+}
+
+#wheelCanvas {
+     /* border: 10px solid #333;  */
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px); /* Blur effect for the container */
+    width: 450px; /* Increased size */
+    height: 450px; /* Increased size */
+}
+
+.spin-button {
+    margin-top: 20px;
+    padding: 15px 30px; /* Increased padding */
+    font-size: 18px; /* Larger font */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.spin-button:hover {
+    background-color: #45a049;
+}
+
+.spin-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    width: 350px; /* Increased width */
+    height: 500px;
+    padding: 20px; /* Increased padding */
+    background-color: rgba(249, 249, 249, 0.733); /* Semi-transparent background */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px); /* Blur effect for the container */
+    border-radius: 8px;
+}
+
+.winner-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    z-index: 3;
+}
+
+.winner-popup button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.winner-popup button:hover {
+    background-color: #45a049;
+}
+
+.winner-popup button.close-btn {
+    background-color: #D50F25;
+}
+
+.winner-popup button.close-btn:hover {
+    background-color: #b94b44;
+}
+
+input {
+    padding: 12px; /* Larger padding */
+    font-size: 18px; /* Larger font */
+    width: 100%; /* Full width */
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+textarea {
+    padding: 12px; /* Larger padding */
+    font-size: 18px; /* Larger font */
+    width: 130%;
+    height: 470px; /* Increased height */
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    resize: none; /* Prevent resizing */
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    border-color: #4CAF50;
+}
