@@ -12,10 +12,12 @@ Welcome to **Dark Side Games**, a collection of interactive games including a co
    ├── public/
    │   ├── casino_roulette/
    │   │   ├── casino_roulette.css
+   │   │   ├── casino_roulette.png
    │   │   ├── casino_roulette.html
    │   │   └── casino_roulette.js
    │   ├── CountdownTimer/
    │   │   ├── Countdown_Time.html
+   │   │   ├── Countdown_Time.png
    │   │   ├── CountdownTimer.css
    │   │   └── CountdownTimer.js
    │   ├── NumberMatch/
@@ -25,10 +27,12 @@ Welcome to **Dark Side Games**, a collection of interactive games including a co
    │   │   └── NumberMatch.js
    │   ├── roulette/
    │   │   ├── roulette.css
+   │   │   ├── roulette.png
    │   │   ├── roulette.html
    │   │   └── roulette.js
    │   ├── SmartScore/
    │   │   ├── SmartScore.css
+   │   │   ├── SmartScore.png
    │   │   ├── SmartScore.html
    │   │   └── SmartScore.js
    │   ├── 501c82db-88cb-43df-bc4d-0ac9044fb640.png
