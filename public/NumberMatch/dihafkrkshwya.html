@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lottery Drawing</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dihafkrkshwya.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- <h1>Lottery Drawing</h1> -->
+    <button id="settings-button" class="settings-btn">⚙️</button>
+  
+    <!-- Settings -->
+    <div id="settings-panel" class="settings-panel hidden">
+        <label>
+            <span># of Balls</span>
+            <input type="number" id="num-balls" value="5" min="1" max="20" />
+        </label>
+        <label>
+            <span>Min #</span>
+            <input type="number" id="min-number" value="1" min="1" />
+        </label>
+        <label>
+            <span>Max #</span>
+            <input type="number" id="max-number" value="20" min="1" />
+        </label>
+    </div>
+
+    <div>
+      <div class="balls-container" id="ballsContainer">
+        <div class="ball empty"></div>
+        <div class="ball empty"></div>
+        <div class="ball empty"></div>
+        <div class="ball empty"></div>
+        <div class="ball empty"></div>
+      </div>
+    </div>
+    
+
+    <div class="input-section">
+      <button class="drawbutton" onclick="toggleModal()">⚙️</button>
+      <h2>D5L BI 1M TRB7 50M</h2>
+      <textarea id="participants" placeholder="John - 1 2 3 4 5&#10;Mary - 6 7 8 9 10"></textarea>
+
+      <button id="drawButton" class="draw-button" onclick="startDraw()">WARK WARK</button>
+      
+    </div>
+
+    <div class="results">
+      <h2 style="padding-left: 50px;">Results</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Numbers</th>
+              <th>Matches</th>
+              <th>Prize</th>
+            </tr>
+          </thead>
+          <tbody id="resultsTable"></tbody>
+        </table>
+      </div>
+    </div>
+    
+
+
+  <div class="overlay" id="overlay"></div>
+  <div class="modal" id="prizes-modal">
+    <h2>Edit Prizes</h2>
+    <label
+      >5 Matches: <input type="text" id="prize-5" value="50 million"
+    /></label>
+    <label
+      >4 Matches: <input type="text" id="prize-4" value="2 million"
+    /></label>
+    <label
+      >3 Matches: <input type="text" id="prize-3" value="1,200,000"
+    /></label>
+    <label
+      >2 Matches: <input type="text" id="prize-2" value="1 million"
+    /></label>
+    <label>1 Match: <input type="text" id="prize-1" value="Loser" /></label>
+    <label>0 Matches: <input type="text" id="prize-0" value="Loser" /></label>
+    <button onclick="savePrizes()">Save Prizes</button>
+    <button onclick="toggleModal()">Close</button>
+  </div>
+<script src="dihafkrkshwya.js"></script>
+</body>
+</html>
+
+<!-- 1 -->
+

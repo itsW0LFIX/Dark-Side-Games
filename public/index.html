@@ -17,11 +17,13 @@
       <a href="#roulette-section">Roulette</a>
       <a href="#number-match">Number Match</a>
       <a href="#smart-polls">Smart Polls</a>
+      <a href="#Question-area">Battle Of Wits</a>
     </div>
 
     <div class="container">
       <h1>Welcome to Dark Side Games</h1>
 
+      <!-- Countdown Timer -->
       <div class="section" id="countdown-section">
         <h2>Countdown Timer</h2>
         <p>Test your timing skills with our exciting countdown game!</p>
@@ -29,6 +31,30 @@
           >Start Countdown</a
         >
       </div>
+
+      <!-- Number Match -->
+
+      <div class="section" id="number-match">
+        <h2>Casino scarf</h2>
+        <p>Special information until further notice !!!</p>
+        <a href="javascript:void(0);" 
+        class="button" 
+        onclick="showPasswordModal()" 
+        style="background-color: rgb(196, 36, 15);">🔐 closed !!!</a>
+      </div>
+      
+      <!-- Password Modal -->
+      <div class="password-modal" id="passwordModal">
+        <div class="password-modal-content">
+          <h2>ma7shmtish ta sir ghyrha</h2>
+          <!-- <h3>Enter the Password</h3> -->
+          <input type="password" id="passwordInput" placeholder="Enter password" />
+          <button onclick="checkPassword()">Submit</button>
+          <button onclick="closePasswordModal()">Cancel</button>
+        </div>
+      </div>
+
+      <!-- Casino Roulette -->
 
       <div class="section" id="casino-section">
         <h2>Casino Roulette</h2>
@@ -38,23 +64,59 @@
         >
       </div>
 
+      <!-- Smart Score -->
+
+      <div class="section" id="smart-polls">
+        <h4 style="color: rgb(185, 9, 9);">⚠ Under maintenance ⚠</h4>
+        <h2>Smart Score</h2>
+        <p>Smart decisions start here. Try it now!</p>
+        <a  class="button" style="background-color: gray;">🔒 Smart Score 🔒</a> <!-- href="SmartScore/SmartScore.html" -->
+      </div>
+
+      <!-- Roulette of Names -->
+
       <div class="section" id="roulette-section">
         <h2>Roulette of Names</h2>
         <p>Let the wheel decide the winner for you!</p>
         <a href="roulette/roulette.html" class="button">Spin Roulette</a>
       </div>
 
-      <div class="section" id="number-match">
-        <h2>Number Match</h2>
-        <p>Can you match the numbers in record time?</p>
-        <a href="NumberMatch/NumberMatch.html" class="button">Play Now</a>
-      </div>
+            <!-- Battle Of Wits -->
 
-      <div class="section" id="smart-polls">
-        <h2>Smart Score</h2>
-        <p>Smart decisions start here. Try it now!</p>
-        <a href="SmartScore/SmartScore.html" class="button">Smart Score</a>
-      </div>
+            <div class="section" id="Question-area">
+              <h4 style="color: rgb(185, 9, 9);">⚠ Under trial ⚠</h4>
+              <h2>Battle Of Wits</h2>
+              <p>Let the wheel decide the winner for you!</p>
+              <a href="BattleOfWits/questionarea.html" class="button" style="background-color: gray;">🔒 Question area 🔒</a> <!--href="BattleOfWits/questionarea.html"-->
+            </div>
+
+
     </div>
-  </body>
+    <script>
+function showPasswordModal() {
+  const modal = document.getElementById("passwordModal");
+  modal.style.display = "flex"; // Show the modal
+}
+
+function closePasswordModal() {
+  const modal = document.getElementById("passwordModal");
+  modal.style.display = "none"; // Hide the modal
+}
+
+function checkPassword() {
+  // haytbdl lcod azbi gha sir 9wd
+  const correctPassword = "SCARFM9AWD"; // Replace with your desired password
+  const userPassword = document.getElementById("passwordInput").value;
+
+  if (userPassword === correctPassword) {
+    window.location.href = "NumberMatch/dihafkrkshwya.html"; // Redirect to the desired page
+  } else {
+    alert("Incorrect password. Access denied!");
+  }
+
+  closePasswordModal(); // Close the modal after checking the input
+}
+
+    </script>
+  </body>  
 </html>

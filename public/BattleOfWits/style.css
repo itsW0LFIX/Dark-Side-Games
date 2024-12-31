@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-color: #f4f4f4; */
+    background-image: url("501c82db-88cb-43df-bc4d-0ac9044fb640.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    animation: gradientBG 15s ease infinite;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+    z-index: -1; /* Keeps it behind all content */
+  }
+  
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .game-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .setup-section {
+    margin-bottom: 30px;
+  }
+  
+  .setup-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .setup-section label {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .setup-section input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .setup-section button {
+    width: 100%;
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .setup-section button:hover {
+    background-color: #218838;
+  }
+  
+  .game-play-section {
+    display: none;
+  }
+  
+  .scoreboard {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  
+  .team {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+    width: 45%;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .team h2 {
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  .team p {
+    font-size: 1.1em;
+    color: #333;
+  }
+  
+  .question-area {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  #question {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .option {
+    padding: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .option:hover {
+    background-color: #0056b3;
+  }
+  
+  .timer {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #d9534f;
+    margin-top: 20px;
+  }
+  
+  .status {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  .settings-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  .settings-button:hover {
+    color: #0056b3;
+  }
+  
+  .settings-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .modal-content button {
+    background-color: #d9534f;
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .modal-content button:hover {
+    background-color: #c9302c;
+  }
+  #settingsButton, #closesetting{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  #exitGameButton,#stopGameButton{
+    margin: 10px;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    background-color: #dad5d5;
+    padding: 5px;
+    border-radius: 5px;
+
+  }
+  #settingsButton:hover {
+    color: #007bff;
+  }
+  
+  /* Green shadow overlay */
+/* Green shadow overlay */
+#greenOverlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 255, 0, 0.4); /* Semi-transparent green */
+  z-index: 200; /* Ensure it overlays everything */
+  pointer-events: none; /* Prevent interactions */
+}
+/* Red shadow overlay */
+#redOverlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.4); /* Semi-transparent red */
+  z-index: 200; /* Ensure it overlays everything */
+  pointer-events: none; /* Prevent interactions */
+}

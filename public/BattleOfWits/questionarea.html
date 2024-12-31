@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battle of Wits</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <h1>Battle of Wits</h1>
+
+    <!-- Game Setup Section -->
+    <div id="setupSection" class="setup-section">
+      <h2>Game Setup</h2>
+      <label for="team1Name">Team 1 Name:</label>
+      <input type="text" id="team1Name" placeholder="Enter Team 1 Name" />
+      
+      <label for="team2Name">Team 2 Name:</label>
+      <input type="text" id="team2Name" placeholder="Enter Team 2 Name" />
+      
+      <label for="timerDuration">Timer Duration (Seconds):</label>
+      <input type="number" id="timerDuration" value="30" min="10" />
+      
+      <label for="maxPoints">Max Points to Win:</label>
+      <input type="number" id="maxPoints" value="10" min="1" />
+      
+      <button id="startButton">Start Game</button>
+    </div>
+
+    <!-- Game Play Section (hidden initially) -->
+    <div id="gameSection" class="game-play-section" style="display:none;">
+      <!-- Settings Button -->
+      <button id="settingsButton" 
+      style="font-size: 42px; cursor: pointer; color: brown; top: 10px; right: 10px;">⚙</button>
+      
+      <div class="scoreboard">
+        <div class="team" id="team1">
+          <h2 id="team1NameDisplay">Team 1</h2>
+          <p>Score: <span id="score1">0</span></p>
+        </div>
+        <div class="team" id="team2">
+          <h2 id="team2NameDisplay">Team 2</h2>
+          <p>Score: <span id="score2">0</span></p>
+        </div>
+      </div>
+      
+      <div class="question-area">
+        <h2 id="question"></h2>
+        <div id="options" class="options">
+          <button class="option" data-choice="A">A</button>
+          <button class="option" data-choice="B">B</button>
+          <button class="option" data-choice="C">C</button>
+          <button class="option" data-choice="D">D</button>
+        </div>
+        <div class="timer">
+          <p>Time Remaining: <span id="timer">30</span>s</p>
+        </div>
+      </div>
+      <div class="status">
+        <p id="status-message"></p>
+      </div>
+
+      <!-- Stop and Out Buttons -->
+
+    </div>
+    
+    <!-- Settings Modal -->
+    <div id="settingsModal" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; padding: 20px; border: 1px solid #ccc; box-shadow: 0px 4px 8px rgba(0,0,0,0.2); z-index: 100;">
+      <h3 style="margin: 20px;"></h3>
+      <button id="stopGameButton">STOP</button>
+      <button id="exitGameButton">OUT</button>
+      <button id="closesetting" onclick="closeSettings()">❌</button>
+    </div>
+
+    <!-- Winner Message (hidden initially) -->
+    <div id="winnerMessage" style="display:none; font-size: 24px; font-weight: bold; text-align: center;">
+      <!-- Winner message will appear here -->
+    </div>
+    
+    <div id="greenOverlay"></div>
+    <div id="redOverlay"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

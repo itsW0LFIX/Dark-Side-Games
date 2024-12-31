@@ -62,63 +62,82 @@ startPollBtn.addEventListener('click', () => {
         votes[option] = 0;
     });
 
-    // Display the poll options
-    displayQuestion.textContent = question;
-    displayOptions.innerHTML = '';
-    options.forEach(option => {
-        const li = document.createElement('li');
+// Display the poll options
+displayQuestion.textContent = question;
+displayOptions.innerHTML = '';
+options.forEach(option => {
+    const li = document.createElement('li');
 
-        // Vote increment/decrement buttons
-        const incrementBtn = document.createElement('button');
-        incrementBtn.textContent = `+1 ${option}`;
-        incrementBtn.className = 'vote-btn';
-        incrementBtn.addEventListener('click', () => {
-            votes[option]++;
-            updateVoteCounts();
-        });
+    // Option title
+    const optionTitle = document.createElement('div');
+    optionTitle.textContent = option;
+    optionTitle.className = 'option-title';
 
-        const decrementBtn = document.createElement('button');
-        decrementBtn.textContent = `-1 ${option}`;
-        decrementBtn.className = 'vote-btn';
-        decrementBtn.addEventListener('click', () => {
-            if (votes[option] > 0) {
-                votes[option]--;
-                updateVoteCounts();
-            } else {
-                // alert(`Votes for ${option} cannot go below zero.`);
-            }
-        });
-
-        // Vote count display
-        const voteCount = document.createElement('span');
-        voteCount.className = 'vote-count';
-        voteCount.textContent = `Votes: 0`;
-
-        // Progress bar design elements
-        const progressBar = document.createElement('div');
-        progressBar.className = 'progress-bar';
-        progressBar.style.width = '0%';
-        progressBar.style.height = '20px';
-        progressBar.style.backgroundColor = getRandomColor();
-        progressBar.style.transition = 'width 0.3s ease';
-
-        // Progress bar container (for styling)
-        const barContainer = document.createElement('div');
-        barContainer.className = 'bar-container';
-        barContainer.style.width = '100%';
-        barContainer.style.backgroundColor = '#f0f0f0';
-        barContainer.style.borderRadius = '10px';
-        barContainer.style.overflow = 'hidden';
-        barContainer.style.margin = '10px 0';
-        barContainer.appendChild(progressBar);
-
-        // Append elements to the list item
-        li.appendChild(incrementBtn);
-        li.appendChild(voteCount);
-        li.appendChild(decrementBtn);
-        li.appendChild(barContainer);
-        displayOptions.appendChild(li);
+    // Vote increment/decrement buttons
+    const incrementBtn = document.createElement('button');
+    incrementBtn.textContent = `+1`;
+    incrementBtn.className = 'vote-btn1';
+    incrementBtn.dataset.option = option; // Store option in data-attribute
+    incrementBtn.addEventListener('click', () => {
+        votes[option]++;
+        updateVoteCounts();
     });
+
+    const decrementBtn = document.createElement('button');
+    decrementBtn.textContent = `-1`;
+    decrementBtn.className = 'vote-btn2';
+    decrementBtn.dataset.option = option; // Store option in data-attribute
+    decrementBtn.addEventListener('click', () => {
+        if (votes[option] > 0) {
+            votes[option]--;
+            updateVoteCounts();
+        }
+    });
+
+    // Vote count display
+    const voteCount = document.createElement('span');
+    voteCount.className = 'vote-count';
+    voteCount.textContent = `Votes: 0`;
+
+    // Progress bar design elements
+    const progressBar = document.createElement('div');
+    progressBar.className = 'progress-bar';
+    progressBar.style.width = '0%';
+    progressBar.style.height = '20px';
+    progressBar.style.backgroundColor = getRandomColor();
+    progressBar.style.transition = 'width 0.3s ease';
+
+    // Progress bar container (for styling)
+    const barContainer = document.createElement('div');
+    barContainer.className = 'bar-container';
+    barContainer.style.width = '100%';
+    barContainer.style.backgroundColor = '#f0f0f0';
+    barContainer.style.borderRadius = '10px';
+    barContainer.style.overflow = 'hidden';
+    barContainer.style.margin = '10px 0';
+    barContainer.appendChild(progressBar);
+
+    // Append elements to the list item
+    li.appendChild(optionTitle); // Add option title above buttons
+    li.appendChild(incrementBtn);
+    li.appendChild(voteCount);
+    li.appendChild(decrementBtn);
+    li.appendChild(barContainer);
+    displayOptions.appendChild(li);
+});
+
+
+// Update vote counts and progress bars
+function updateVoteCounts() {
+    const totalVotes = Object.values(votes).reduce((a, b) => a + b, 0);
+    Array.from(displayOptions.children).forEach(li => {
+        const option = li.querySelector('button').dataset.option; // Retrieve option from data-attribute
+        const percentage = totalVotes ? (votes[option] / totalVotes) * 100 : 0;
+        li.querySelector('.vote-count').textContent = `Votes: ${votes[option]}`;
+        li.querySelector('.progress-bar').style.width = `${percentage}%`;
+    });
+}
+
 
     pollForm.style.display = 'none';    // Hide the poll form
     pollDisplay.style.display = 'block'; // Show the poll display section
@@ -132,17 +151,6 @@ startPollBtn.addEventListener('click', () => {
         }
     }
 });
-
-// Update vote counts and progress bars
-function updateVoteCounts() {
-    const totalVotes = Object.values(votes).reduce((a, b) => a + b, 0);
-    Array.from(displayOptions.children).forEach(li => {
-        const option = li.querySelector('button').textContent.split(' ')[1];
-        const percentage = totalVotes ? (votes[option] / totalVotes) * 100 : 0;
-        li.querySelector('.vote-count').textContent = `Votes: ${votes[option]}`;
-        li.querySelector('.progress-bar').style.width = `${percentage}%`;
-    });
-}
 
 // Timer logic
 function startTimer(seconds) {

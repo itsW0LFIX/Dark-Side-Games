@@ -119,6 +119,14 @@ text-align: center;
     margin: 10px 0;
 }
 
+.option-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 30px;
+    text-align: center;
+    color: #310701;
+}
+
 .poll-options input {
     padding: 10px;
     font-size: 1em;
@@ -159,15 +167,24 @@ text-align: center;
 
 
 
-.vote-btn {
-    background-color: #ff4081;
+.vote-btn1 {
+    background-color: #06a106;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.vote-btn2 {
+    margin-left: 20px;
+    background-color: #c21d1ddc;
     color: white;
     border-radius: 5px;
     padding: 10px 15px;
     border: none;
     cursor: pointer;
 }
-
 .vote-btn:hover, #create-poll-btn:hover, .add-option-btn:hover {
 transform: scale(1.05);
 background-color: lighten(#ff4081, 10%);
