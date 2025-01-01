@@ -4,7 +4,7 @@ body {
   margin: 0 auto;
   padding: 20px;
   background: #f0f0f0;
-  background-image: url("SDQSDQSDQSD.webp"); /* Background Image */
+  background-image: url("SDQSDQSDQSD111.webp"); /* Background Image */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -27,7 +27,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("SDQSDQSDQSD.webp"); /* Background Image */
+  background-image: url("SDQSDQSDQSD111.webp"); /* Background Image */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -118,7 +118,7 @@ border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-size: 18px;
 
-    position: absolute;
+  position: absolute;
   top: 60%;
   left: 12%;
   transform: translate(-50%, -50%); 
@@ -487,4 +487,22 @@ input[type="text"] {
   100% {
     transform: rotate(360deg);
   }
+}
+.logo-container {
+  position: absolute;
+  top: 10%;
+  left: 7%;
+  transform: translate(-50%, -50%); 
+  text-align: center;
+}
+
+.logo {
+  width: 100px; /* Adjust the size of your logo */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
 }

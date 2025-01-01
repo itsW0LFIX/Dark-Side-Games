@@ -39,10 +39,38 @@ body::before {
   top: 0;
   background: rgba(0, 0, 0, 0.7);
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* Adjusted to allow space for the logo */
+  align-items: center; /* Align items vertically */
   padding: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   z-index: 1000;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: space-between; /* Adjusted to allow space for the logo */
+  align-items: center; /* Align items vertically */
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.logo a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: 'Concert One', cursive;
+}
+
+.word-dark {
+  color: #0f1e69; /* Color for 'DARK' */
+}
+
+.word-side {
+  color: #a19e9e; /* Color for 'SIDE.' */
 }
 
 .navbar a {
@@ -56,6 +84,12 @@ body::before {
 .navbar a:hover {
   color: #4caf50;
 }
+
+.nav-links {
+  display: flex;
+}
+
+
 
 .container {
   max-width: 800px;
