@@ -25,7 +25,7 @@ function startDraw() {
   isDrawing = true;
   const drawButton = document.getElementById('drawButton');
   drawButton.disabled = true;
-  drawButton.textContent = 'Drawing...';
+  drawButton.textContent = 'IWA TSNA NTA ZRBAN';
 
   // Get settings values
   const numBalls = parseInt(document.getElementById('num-balls').value);
@@ -83,12 +83,15 @@ function checkResults() {
 
   const participants = participantsText.trim().split('\n')
     .map(line => {
-      const [name, numbers] = line.split('-');
+      const [name, numbers] = line.split(/[-:]/);
       if (!name || !numbers) return null;
 
-      const playerNumbers = numbers.trim().split(' ')
+      const playerNumbers = numbers
+        .trim()
+        .split(/\s+/) // Split by one or more spaces
+        .filter(n => n.trim() !== '') // Remove empty entries
         .map(Number)
-        .filter(n => !isNaN(n));
+        .filter(n => !isNaN(n)); // Ensure only valid numbers are kept
 
       const matches = playerNumbers.filter(num => 
         winningNumbers.includes(num)
@@ -98,15 +101,17 @@ function checkResults() {
         name: name.trim(),
         numbers: playerNumbers,
         matches: matches,
-        prize: prizes[matches.length]
+        prize: prizes[matches.length] || "Loser",
+        matchCount: matches.length
       };
     })
     .filter(p => p !== null);
 
+  participants.sort((a, b) => b.matchCount - a.matchCount);
+
   participants.forEach(participant => {
     const row = document.createElement('tr');
     
-    // Here we assume prizes is an array where a valid prize is not 'Loser'
     const prizeClass = participant.prize && participant.prize !== 'Loser' ? 'winner' : 'loser';
 
     row.innerHTML = `
@@ -120,6 +125,9 @@ function checkResults() {
     resultsTable.appendChild(row);
   });
 }
+
+
+
 
 
 // Settings panel functionality

@@ -7,6 +7,16 @@
 </head>
 
 <body>
+
+    <!-- Container for Password Modal (This will be above all content) -->
+    <div class="password-container">
+      <div class="password-modal-content">
+        <h2>NSITINI WA9ILA 🙂</h2>
+        <input type="password" id="passwordInput" placeholder="Enter password" />
+        <button onclick="checkPassword()">Submit</button>
+        <button onclick="closePasswordModal()">Cancel</button>
+      </div>
+    </div>
   <div class="container">
     <!-- <h1>Lottery Drawing</h1> -->
     <button id="settings-button" class="settings-btn">⚙️</button>
@@ -86,7 +96,33 @@
     <button onclick="savePrizes()">Save Prizes</button>
     <button onclick="toggleModal()">Close</button>
   </div>
+  <script>
+    const correctPassword = "SCARFM9AWD"; // Set your desired password here
+
+// Function to check the password
+function checkPassword() {
+    const passwordInput = document.getElementById('passwordInput').value;
+    if (passwordInput === correctPassword) {
+        // Hide the password modal once the correct password is entered
+        document.querySelector('.password-container').classList.add('hidden'); // Hide password modal
+    } else {
+        alert("Incorrect password! Try again.");
+    }
+}
+
+// Close the password modal if the user clicks "Cancel"
+function closePasswordModal() {
+    document.querySelector('.password-container').classList.add('hidden'); // Hide password modal
+}
+
+// Show the password modal on page load
+window.onload = function() {
+    document.querySelector('.password-container').classList.remove('hidden'); // Show password modal
+};
+
+  </script>
 <script src="dihafkrkshwya.js"></script>
+
 </body>
 </html>
 

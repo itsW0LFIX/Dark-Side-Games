@@ -1,4 +1,4 @@
-    body {
+body {
   font-family: Arial, sans-serif;
   max-width: 800px;
   margin: 0 auto;
@@ -9,17 +9,71 @@
   background-position: center;
   background-attachment: fixed;
   overflow: hidden; /* Prevent scrolling */
-  /* color: #4b4a4a; */
 }
 
 .container {
-  /* background: white; */
   padding: 20px;
   border-radius: 10px;
-  /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+  /* display: none; Initially hidden */
 }
 
+/* Password Modal container */
+.password-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("SDQSDQSDQSD.webp"); /* Background Image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden; /* Prevent scrolling */ /* Semi-transparent background */
+  z-index: 1000; /* Modal overlay */
+}
 
+.password-modal-content {
+  background-color: white; /* White background for the modal */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+input[type="password"] {
+  padding: 10px;
+  width: 90%;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+
+/* Main content styling */
+#content {
+  display: block; /* Content will be displayed after password is entered */
+}
 
 .balls-container {
   display: flex;
