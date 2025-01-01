@@ -59,6 +59,7 @@ You can access the games here: [HERE](https://dark-side-games.web.app/)
 - Roulette of Names
 - Number Match
 - Smart Score
+- Bettle Of Wits
 
 ### Requirements
 
@@ -71,7 +72,8 @@ You can access the games here: [HERE](https://dark-side-games.web.app/)
 2. **Countdown Timer**: Set the timer and let it count down to zero for your specific event.
 3. **Casino Roulette**: Play the casino-style roulette by placing bets and spinning the wheel.
 4. **Wheel of Names**: Add your list of names and spin the wheel to randomly pick a winner.
-5. **Number Match**: 
+5. **Number Match**: Add the numbers you want to play with and then play roulette.
+5. **Bettle Of Wits**: add names of teams, timing of answer and max points of winning and start battle of wits.
 
 ## Contributors
 
