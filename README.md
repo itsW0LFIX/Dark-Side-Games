@@ -10,6 +10,12 @@ Welcome to **Dark Side Games**, a collection of interactive games including a co
    ├── .vscode/
    │   └── settings.json
    ├── public/
+   │   ├── BattleOfWits/
+   │   │   ├── 501c82db-88cb-43df-bc4d-0ac9044fb640.png
+   │   │   ├── questionarea.html
+   │   │   ├── questions.json
+   │   │   ├── script.js
+   │   │   └── style.css
    │   ├── casino_roulette/
    │   │   ├── casino_roulette.css
    │   │   ├── casino_roulette.png
@@ -21,10 +27,11 @@ Welcome to **Dark Side Games**, a collection of interactive games including a co
    │   │   ├── CountdownTimer.css
    │   │   └── CountdownTimer.js
    │   ├── NumberMatch/
-   │   │   ├── b1.png
-   │   │   ├── NumberMatch.css
-   │   │   ├── NumberMatch.html
-   │   │   └── NumberMatch.js
+   │   │   ├── DARKSIDE_LOGGO.webp
+   │   │   ├── SDQSDQSDQSD111.webp
+   │   │   ├── dihafkrkshwya.css
+   │   │   ├── dihafkrkshwya.html
+   │   │   └── hafkrkshwya.js
    │   ├── roulette/
    │   │   ├── roulette.css
    │   │   ├── roulette.png
@@ -38,7 +45,7 @@ Welcome to **Dark Side Games**, a collection of interactive games including a co
    │   ├── 501c82db-88cb-43df-bc4d-0ac9044fb640.png
    │   ├── index.html
    │   └── style.css
-
+   |    ... 
 --- 
 
 ## Hosted Link
