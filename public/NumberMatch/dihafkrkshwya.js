@@ -1,8 +1,8 @@
 
 let prizes = {
   5: "50 million",
-  4: "2 million",
-  3: "1,200,000",
+  4: "5 million",
+  3: "1,500,000",
   2: "1 million",
   1: "Loser",
   0: "Loser"
@@ -19,13 +19,52 @@ function generateNumber(min, max, exclude) {
   return num;
 }
 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const ticketInput = document.getElementById('tickets');
+  const remainingTicketsElement = document.getElementById('remaining-tickets');
+
+  // Initialize remaining tickets from input value
+  remainingTickets = parseInt(ticketInput.value);
+  remainingTicketsElement.textContent = `Remaining Tickets: ${remainingTickets}`;
+
+  // Update remaining tickets when the input value changes
+  ticketInput.addEventListener('input', () => {
+      remainingTickets = parseInt(ticketInput.value);
+      if (isNaN(remainingTickets) || remainingTickets < 0) {
+          remainingTickets = 0;
+      }
+      remainingTicketsElement.textContent = `Remaining Tickets: ${remainingTickets}`;
+  });
+});
+
+
+let remainingTickets = parseInt(document.getElementById('tickets').value);
 function startDraw() {
-  if (isDrawing) return;
-  
-  isDrawing = true;
-  const drawButton = document.getElementById('drawButton');
-  drawButton.disabled = true;
-  drawButton.textContent = 'IWA TSNA NTA ZRBAN';
+  const participantsText = document.getElementById('participants').value.trim();
+    const participantsCount = participantsText ? participantsText.split('\n').length : 0;
+
+    if (participantsCount > remainingTickets) {
+        alert('Not enough tickets for this draw!');
+        return;
+    }
+
+    if (remainingTickets <= 0) {
+        alert('Tickets exhausted! Reloading the page...');
+        location.reload();
+        return;
+    }
+
+    // Proceed with the draw
+    isDrawing = true;
+    const drawButton = document.getElementById('drawButton');
+    drawButton.disabled = true;
+    drawButton.textContent = 'IWA TSNA NTA ZRBAN';
+
+    remainingTickets -= participantsCount;
+    document.getElementById('remaining-tickets').textContent = `Remaining Tickets: ${remainingTickets}`;
+
 
   // Get settings values
   const numBalls = parseInt(document.getElementById('num-balls').value);
@@ -163,3 +202,4 @@ function savePrizes() {
   prizes[0] = document.getElementById("prize-0").value;
   toggleModal();
 }
+

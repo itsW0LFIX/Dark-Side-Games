@@ -57,7 +57,7 @@
           <h2>ma7shmtish ta sir ghyrha</h2>
           <!-- <h3>Enter the Password</h3> -->
           <input type="password" id="passwordInput" placeholder="Enter password" />
-          <button onclick="checkPassword()">Submit</button>
+          <button onclick="checkPassword(), checkPassword1()">Submit</button>
           <button onclick="closePasswordModal()">Cancel</button>
         </div>
       </div>
@@ -98,32 +98,29 @@
               <a class="button" style="background-color: gray;">🔒 Question area 🔒</a> <!--href="BattleOfWits/questionarea.html"-->
             </div>
 
-
     </div>
     <script>
-function showPasswordModal() {
-  const modal = document.getElementById("passwordModal");
-  modal.style.display = "flex"; // Show the modal
-}
-
-function closePasswordModal() {
-  const modal = document.getElementById("passwordModal");
-  modal.style.display = "none"; // Hide the modal
-}
-
-function checkPassword() {
-  // haytbdl lcod azbi gha sir 9wd
-  const correctPassword = "SCARFM9AWD"; // Replace with your desired password
-  const userPassword = document.getElementById("passwordInput").value;
-
-  if (userPassword === correctPassword) {
-    window.location.href = "NumberMatch/dihafkrkshwya.html"; // Redirect to the desired page
-  } else {
-    alert("Incorrect password. Access denied!");
+  function showPasswordModal() {
+    document.getElementById("passwordModal").style.display = "flex";
   }
 
-  closePasswordModal(); // Close the modal after checking the input
-}
+  function closePasswordModal() {
+    document.getElementById("passwordModal").style.display = "none";
+  }
+
+  function checkPassword() {
+    const passwords = {
+      // SCARFM9AWD: "NumberMatch/dihafkrkshwya.html",
+      SCARFM9AWD: "NumberMatch/userscasino.html",
+    };
+    const userPassword = document.getElementById("passwordInput").value;
+
+    if (passwords[userPassword]) {
+      window.location.href = passwords[userPassword];
+    } else {
+      alert("Incorrect password. Access denied!");
+    }
+  }
 
     </script>
   </body>  

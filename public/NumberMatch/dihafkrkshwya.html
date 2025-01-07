@@ -34,19 +34,23 @@
   
     <!-- Settings -->
     <div id="settings-panel" class="settings-panel hidden">
-        <label>
-            <span># of Balls</span>
-            <input type="number" id="num-balls" value="5" min="1" max="20" />
-        </label>
-        <label>
-            <span>Min #</span>
-            <input type="number" id="min-number" value="1" min="1" />
-        </label>
-        <label>
-            <span>Max #</span>
-            <input type="number" id="max-number" value="20" min="1" />
-        </label>
-    </div>
+      <label>
+          <span># of Balls</span>
+          <input type="number" id="num-balls" value="5" min="1" max="20" />
+      </label>
+      <label>
+          <span>Min #</span>
+          <input type="number" id="min-number" value="1" min="1" />
+      </label>
+      <label>
+          <span>Max #</span>
+          <input type="number" id="max-number" value="20" min="1" />
+      </label>
+      <label>
+          <span>Tickets</span>
+          <input type="number" id="tickets" value="50" min="1" />
+      </label>
+  </div>
 
     <div>
       <div class="balls-container" id="ballsContainer">
@@ -61,7 +65,8 @@
 
     <div class="input-section">
       <button class="drawbutton" onclick="toggleModal()">⚙️</button>
-      <h2>D5L BI 1M TRB7 50M</h2>
+      <p id="remaining-tickets" style="font-size: 1.2vw;">Remaining Tickets: 50</p>
+      <!-- <h2>D5L BI 1M TRB7 50M</h2> -->
       <textarea id="participants" placeholder="John - 1 2 3 4 5&#10;Mary - 6 7 8 9 10"></textarea>
 
       <button id="drawButton" class="draw-button" onclick="startDraw()">WARK WARK</button>
@@ -94,10 +99,10 @@
       >5 Matches: <input type="text" id="prize-5" value="50 million"
     /></label>
     <label
-      >4 Matches: <input type="text" id="prize-4" value="2 million"
+      >4 Matches: <input type="text" id="prize-4" value="5 million"
     /></label>
     <label
-      >3 Matches: <input type="text" id="prize-3" value="1,200,000"
+      >3 Matches: <input type="text" id="prize-3" value="1,500,000"
     /></label>
     <label
       >2 Matches: <input type="text" id="prize-2" value="1 million"

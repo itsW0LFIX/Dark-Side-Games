@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lottery Drawing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+
+</style>
+<body>
+
+
+    <!-- Container for Password Modal (This will be above all content) -->
+    <div class="password-container">
+      <div class="password-modal-content">
+        <h2>NSITINI WA9ILA 🙂</h2>
+        <input type="password" id="passwordInput" placeholder="Enter password" />
+        <button onclick="checkPassword()">Submit</button>
+        <!-- <button onclick="closePasswordModal()">Cancel</button> -->
+      </div>
+      <div class="logo-container">
+        <a href="https://discord.com/invite/dside" target="_blank" rel="noopener noreferrer">
+          <img src="DARKSIDE_LOGGO.webp" alt="Logo" class="logo">
+        </a>
+      </div>
+    </div>
+  
+  <div class="logo-container">
+    <a href="https://discord.com/invite/dside" target="_blank" rel="noopener noreferrer">
+      <img src="DARKSIDE_LOGGO.webp" alt="Logo" class="logo">
+    </a>
+    <span id="timer" class="timer">03:00:00</span> <!-- Timer next to the logo -->
+  </div>
+    <!-- <h1>Lottery Drawing</h1> -->
+    <button id="settings-button" class="settings-btn">⚙️</button>
+  
+    <!-- Settings -->
+    <div id="settings-panel" class="settings-panel hidden">
+      <label>
+          <span># of Balls</span>
+          <input type="number" id="num-balls" value="5" min="1" max="20" />
+      </label>
+      <label>
+          <span>Min #</span>
+          <input type="number" id="min-number" value="1" min="1" />
+      </label>
+      <label>
+          <span>Max #</span>
+          <input type="number" id="max-number" value="20" min="1" />
+      </label>
+      <label>
+          <span>Tickets</span>
+          <input type="number" id="tickets" value="50" min="1" />
+      </label>
+  </div>
+
+    <div>
+      <div class="balls-container" id="ballsContainer">
+        <div class="ball empty"></div>
+        <div class="ball empty"></div>
+        <div class="ball empty"></div>
+        <div class="ball empty"></div>
+        <div class="ball empty"></div>
+      </div>
+    </div>
+    
+
+    <div class="input-section">
+      <button class="drawbutton" onclick="toggleModal()">⚙️</button>
+      <p id="remaining-tickets" style="font-size: 1.2vw;">Remaining Tickets: 50</p>
+      <!-- <h2>D5L BI 1M TRB7 50M</h2> -->
+      <textarea id="participants" placeholder="John - 1 2 3 4 5&#10;Mary - 6 7 8 9 10"></textarea>
+
+      <button id="drawButton" class="draw-button" onclick="startDraw()">WARK WARK</button>
+      
+    </div>
+
+    <div class="results">
+      <h2 style="padding-left: 50px;">Results</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Numbers</th>
+              <th>Matches</th>
+              <th>Prize</th>
+            </tr>
+          </thead>
+          <tbody id="resultsTable"></tbody>
+        </table>
+      </div>
+    </div>
+    
+
+
+  <div class="overlay" id="overlay"></div>
+  <div class="modal" id="prizes-modal">
+    <h2>Edit Prizes</h2>
+    <label
+      >5 Matches: <input type="text" id="prize-5" value="50 million"
+    /></label>
+    <label
+      >4 Matches: <input type="text" id="prize-4" value="5 million"
+    /></label>
+    <label
+      >3 Matches: <input type="text" id="prize-3" value="1,500,000"
+    /></label>
+    <label
+      >2 Matches: <input type="text" id="prize-2" value="1 million"
+    /></label>
+    <label>1 Match: <input type="text" id="prize-1" value="Loser" /></label>
+    <label>0 Matches: <input type="text" id="prize-0" value="Loser" /></label>
+    <button onclick="savePrizes()">Save Prizes</button>
+    <button onclick="toggleModal()">Close</button>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyC_q9lBPnGhTfvcsa9feoLNaG9uYxqRohs",
+        authDomain: "dark-side-games.firebaseapp.com",
+        databaseURL: "https://dark-side-games-default-rtdb.firebaseio.com",
+        projectId: "dark-side-games",
+        storageBucket: "dark-side-games.appspot.com",
+        messagingSenderId: "218111436489",
+        appId: "1:218111436489:web:9673dea8d5d3a18c334f18"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    let basePassword = "AIamdoARM";
+    let additionalChars = "";
+    let correctPassword = basePassword;
+
+    function loadPassword() {
+        const storedPassword = localStorage.getItem("currentPassword");
+        const storedAdditionalChars = localStorage.getItem("additionalChars");
+        if (storedPassword && storedAdditionalChars !== null) {
+            correctPassword = storedPassword;
+            additionalChars = storedAdditionalChars;
+        }
+    }
+
+    function savePassword() {
+        localStorage.setItem("currentPassword", correctPassword);
+        localStorage.setItem("additionalChars", additionalChars);
+    }
+
+    async function checkPassword() {
+        const passwordInput = document.getElementById('passwordInput').value;
+        
+        try {
+            const passwordsRef = database.ref('passwords');
+            const snapshot = await passwordsRef.once('value');
+            const passwords = snapshot.val();
+            
+            let isValid = false;
+            if (passwords) {
+                Object.values(passwords).forEach(entry => {
+                    if (entry.password === passwordInput) {
+                        isValid = true;
+                    }
+                });
+            }
+            
+            if (isValid) {
+                document.querySelector('.password-container').classList.add('hidden');
+                alert("Access granted!");
+            }
+        } catch (error) {
+            console.error("Error checking password:", error);
+        }
+    }
+
+    function updatePassword() {
+        const newChar = String.fromCharCode(97 + additionalChars.length);
+        additionalChars += newChar;
+        correctPassword = basePassword + additionalChars;
+        savePassword();
+        document.querySelector('.password-container').classList.remove('hidden');
+    }
+
+    function closePasswordModal() {
+        document.querySelector('.password-container').classList.add('hidden');
+    }
+
+    let timeRemaining = 10800;
+
+    function formatTime(seconds) {
+        const hrs = Math.floor(seconds / 3600).toString().padStart(2, "0");
+        const mins = Math.floor((seconds % 3600) / 60).toString().padStart(2, "0");
+        const secs = (seconds % 60).toString().padStart(2, "0");
+        return `${hrs}:${mins}:${secs}`;
+    }
+
+    function updateTimerDisplay() {
+        const timerElement = document.getElementById("timer");
+        timerElement.textContent = formatTime(timeRemaining);
+    }
+
+    function startCountdown() {
+        const timerInterval = setInterval(() => {
+            if (timeRemaining > 0) {
+                timeRemaining--;
+                updateTimerDisplay();
+            } else {
+                clearInterval(timerInterval);
+                updatePassword();
+                timeRemaining = 10800;
+                startCountdown();
+            }
+        }, 1000);
+    }
+
+    // Load your existing game logic script
+    const script = document.createElement('script');
+    script.src = 'dihafkrkshwya.js';
+    document.body.appendChild(script);
+
+    window.onload = function() {
+        loadPassword();
+        updateTimerDisplay();
+        startCountdown();
+        document.querySelector('.password-container').classList.remove('hidden');
+    };
+</script>
+<script src="dihafkrkshwya.js"></script>
+
+</body>
+</html>
+
+<!-- 1 -->
+
