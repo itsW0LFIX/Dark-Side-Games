@@ -2,52 +2,6 @@
 
 Welcome to **Dark Side Games**, a collection of interactive games including a countdown timer, roulette, and a Wheel of Names game. This project is designed to bring a fun and interactive experience to users with a clean and stylish interface.
 
-## 📁 File Structure
-
--
-    ```
-   TIMER/
-   ├── .vscode/
-   │   └── settings.json
-   ├── public/
-   │   ├── BattleOfWits/
-   │   │   ├── 501c82db-88cb-43df-bc4d-0ac9044fb640.png
-   │   │   ├── questionarea.html
-   │   │   ├── questions.json
-   │   │   ├── script.js
-   │   │   └── style.css
-   │   ├── casino_roulette/
-   │   │   ├── casino_roulette.css
-   │   │   ├── casino_roulette.png
-   │   │   ├── casino_roulette.html
-   │   │   └── casino_roulette.js
-   │   ├── CountdownTimer/
-   │   │   ├── Countdown_Time.html
-   │   │   ├── Countdown_Time.png
-   │   │   ├── CountdownTimer.css
-   │   │   └── CountdownTimer.js
-   │   ├── NumberMatch/
-   │   │   ├── DARKSIDE_LOGGO.webp
-   │   │   ├── SDQSDQSDQSD111.webp
-   │   │   ├── dihafkrkshwya.css
-   │   │   ├── dihafkrkshwya.html
-   │   │   └── hafkrkshwya.js
-   │   ├── roulette/
-   │   │   ├── roulette.css
-   │   │   ├── roulette.png
-   │   │   ├── roulette.html
-   │   │   └── roulette.js
-   │   ├── SmartScore/
-   │   │   ├── SmartScore.css
-   │   │   ├── SmartScore.png
-   │   │   ├── SmartScore.html
-   │   │   └── SmartScore.js
-   │   ├── 501c82db-88cb-43df-bc4d-0ac9044fb640.png
-   │   ├── index.html
-   │   └── style.css
-   |    ... 
---- 
-
 ## Hosted Link
 
 You can access the games here: [HERE](https://dark-side-games.web.app/)
@@ -75,11 +29,4 @@ You can access the games here: [HERE](https://dark-side-games.web.app/)
 5. **Number Match**: Add the numbers you want to play with and then play roulette.
 5. **Bettle Of Wits**: add names of teams, timing of answer and max points of winning and start battle of wits.
 
-## Contributors
 
-- [itsW0LFIX](https://github.com/itsW0LFIX) - developer
-- [its-YARA](https://github.com/its-YARA) - Designer
-
-## New Games Coming Soon...
-
-Stay tuned for more exciting games coming soon!
