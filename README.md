@@ -14,6 +14,7 @@ You can access the games here: [HERE](https://dark-side-games.web.app/)
 - Number Match
 - Smart Score
 - Bettle Of Wits
+- Random Name Picker
 
 ### Requirements
 
@@ -28,5 +29,6 @@ You can access the games here: [HERE](https://dark-side-games.web.app/)
 4. **Wheel of Names**: Add your list of names and spin the wheel to randomly pick a winner.
 5. **Number Match**: Add the numbers you want to play with and then play roulette.
 5. **Bettle Of Wits**: add names of teams, timing of answer and max points of winning and start battle of wits.
+5. **Random Name Picker**: This is an interactive web application designed for randomly selecting names from a list....
 
 
