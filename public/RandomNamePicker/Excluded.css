@@ -1,0 +1,184 @@
+    /* Excluded name styling */
+.nameBlock.excluded {
+    background-color: rgba(169, 169, 169, 0.596) !important;
+    color: #555;
+    position: relative;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.exclusion-badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 12px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Context menu styling */
+.name-context-menu {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 180px;
+}
+
+.menu-item {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.menu-item:first-child {
+    font-weight: bold;
+    color: #333;
+    cursor: default;
+}
+
+.menu-item:hover:not(:first-child):not(.excluded-info) {
+    background-color: #f2f2f2;
+}
+
+.menu-separator {
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 4px 0;
+}
+
+.excluded-info {
+    font-style: italic;
+    color: #666;
+    cursor: default;
+}
+
+/* Modal styling for exclusion manager */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.exclusion-modal,
+.exclusion-manager-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(53, 52, 52);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    width: 90%;
+    max-width: 500px;
+}
+
+.exclusion-manager-modal {
+    width: 95%;
+    max-width: 600px;
+}
+
+.modal-header {
+    padding: 16px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #777;
+}
+
+.modal-body {
+    padding: 16px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.modal-footer {
+    padding: 16px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.exclusion-input {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.exclusion-input input {
+    width: 80px;
+}
+
+.exclusion-input select {
+    flex-grow: 1;
+}
+
+/* Exclusion list in manager */
+.exclusion-list {
+    max-height: 50vh;
+}
+
+.exclusion-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.exclusion-time {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.remove-exclusion {
+    background: none;
+    border: none;
+    color: #f44336;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.no-exclusions {
+    color: #777;
+    text-align: center;
+    font-style: italic;
+}
+
+.exclusion-duration-row {
+    display: flex;
+    align-items: center;
+}
+
+.exclusion-inputs {
+    display: flex;
+    gap: 8px;
+}
+
+.exclusion-inputs input {
+    width: 60px;
+}

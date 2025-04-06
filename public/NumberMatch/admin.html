@@ -5,57 +5,199 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #f0f0f0;
-        }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        input, button {
-            margin: 10px 0;
-            padding: 8px;
-            width: 100%;
-        }
-        button {
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        .password-list {
-            margin-top: 20px;
-        }
-        .password-item {
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .delete-btn {
-            background: #dc3545;
-            padding: 5px 10px;
-            margin-left: 10px;
-            width: auto;
-        }
-        #loginForm, #adminPanel {
-            margin-bottom: 20px;
-        }
-        .error {
-            color: red;
-            margin: 10px 0;
-        }
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #2ecc71;
+    --danger-color: #e74c3c;
+    --background-color: #ecf0f1;
+    --white: #ffffff;
+    --text-color: #333;
+    --light-gray: #f8f9fa;
+    --border-color: #ddd;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 40px 15px;
+}
+
+.container {
+    background-color: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+#loginForm, #adminPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input, button {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.error {
+    color: var(--danger-color);
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+    padding: 10px;
+    background-color: rgba(231, 76, 60, 0.05);
+    border-radius: 6px;
+}
+
+.password-list {
+    background-color: var(--light-gray);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.password-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--white);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.password-item:hover {
+    transform: scale(1.02);
+}
+
+.delete-btn {
+    background-color: var(--danger-color);
+    color: var(--white);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.logs-section {
+    background-color: var(--light-gray);
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.log-stats {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--white);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logs-list {
+    max-height: 400px;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+
+.log-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s ease;
+}
+
+.log-item:last-child {
+    border-bottom: none;
+}
+
+.log-item:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.success {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.failure {
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 25px 15px;
+        margin: 0 10px;
+    }
+
+    .log-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -77,9 +219,22 @@
             <div class="password-list" id="passwordList">
                 <h3>Active Passwords</h3>
             </div>
+
+            <div class="container">
+                <div class="logs-section">
+                    <h2>Access Logs</h2>
+                    <div class="log-stats">
+                        <span>Total Attempts: <span id="totalAttempts">0</span></span>
+                        <span>Success Rate: <span id="successRate">0%</span></span>
+                    </div>
+                    <div id="logsList" class="logs-list">
+                        <!-- Logs will be populated here -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
+    
     <!-- Import Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
@@ -192,6 +347,69 @@
                 });
             }
         }
+
+    </script>
+<script>
+    function loadLogs() {
+        const logsRef = database.ref('logs');
+        logsRef.on('value', (snapshot) => {
+            const logsList = document.getElementById('logsList');
+            logsList.innerHTML = '';
+            
+            let totalAttempts = 0;
+            let successfulAttempts = 0;
+            
+            if (snapshot.exists()) {
+                const logs = [];
+                snapshot.forEach((childSnapshot) => {
+                    logs.push({
+                        ...childSnapshot.val(),
+                        id: childSnapshot.key
+                    });
+                    totalAttempts++;
+                    if (childSnapshot.val().success) successfulAttempts++;
+                });
+                
+                logs.sort((a, b) => b.timestamp - a.timestamp);
+                
+                logs.forEach(log => {
+                    const logItem = document.createElement('div');
+                    logItem.className = 'log-item';
+                    const date = new Date(log.timestamp).toLocaleString();
+                    logItem.innerHTML = `
+                        <div>
+                            <span>Password: ${log.password}</span>
+                            <span class="${log.success ? 'success' : 'failure'}">
+                                ${log.success ? '✓' : '✗'}
+                            </span>
+                        </div>
+                        <div>
+                            <span>${date}</span>
+                            <button onclick="deleteLog('${log.id}')" class="delete-btn">Delete</button>
+                        </div>
+                    `;
+                    logsList.appendChild(logItem);
+                });
+                
+                document.getElementById('totalAttempts').textContent = totalAttempts;
+                document.getElementById('successRate').textContent = 
+                    `${((successfulAttempts/totalAttempts) * 100).toFixed(1)}%`;
+            }
+        });
+    }
+    
+    function deleteLog(logId) {
+        if (confirm('Delete this log entry?')) {
+            database.ref('logs/' + logId).remove()
+                .catch(error => console.error('Error deleting log:', error));
+        }
+    }
+    
+    // Add to window.onload
+    window.onload = function() {
+        loadPasswords();
+        loadLogs();
+    }
     </script>
 </body>
 </html>

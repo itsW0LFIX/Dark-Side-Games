@@ -29,7 +29,7 @@
     <a href="https://discord.com/invite/dside" target="_blank" rel="noopener noreferrer">
       <img src="DARKSIDE_LOGGO.webp" alt="Logo" class="logo">
     </a>
-    <span id="timer" class="timer">03:00:00</span> <!-- Timer next to the logo -->
+    <!-- <span id="timer" class="timer">03:00:00</span> Timer next to the logo -->
   </div>
     <!-- <h1>Lottery Drawing</h1> -->
     <button id="settings-button" class="settings-btn">⚙️</button>
@@ -152,30 +152,37 @@
     }
 
     async function checkPassword() {
-        const passwordInput = document.getElementById('passwordInput').value;
+    const passwordInput = document.getElementById('passwordInput').value;
+    
+    try {
+        const passwordsRef = database.ref('passwords');
+        const snapshot = await passwordsRef.once('value');
+        const passwords = snapshot.val();
         
-        try {
-            const passwordsRef = database.ref('passwords');
-            const snapshot = await passwordsRef.once('value');
-            const passwords = snapshot.val();
-            
-            let isValid = false;
-            if (passwords) {
-                Object.values(passwords).forEach(entry => {
-                    if (entry.password === passwordInput) {
-                        isValid = true;
-                    }
-                });
-            }
-            
-            if (isValid) {
-                document.querySelector('.password-container').classList.add('hidden');
-                alert("Access granted!");
-            }
-        } catch (error) {
-            console.error("Error checking password:", error);
+        let isValid = false;
+        if (passwords) {
+            Object.values(passwords).forEach(entry => {
+                if (entry.password === passwordInput) {
+                    isValid = true;
+                }
+            });
         }
+        
+        // Log the attempt with correct success status
+        await database.ref('logs').push({
+            password: passwordInput,
+            timestamp: Date.now(),
+            success: isValid
+        });
+
+        if (isValid) {
+            document.querySelector('.password-container').classList.add('hidden');
+            alert("Access granted!");
+        }
+    } catch (error) {
+        console.error("Error checking password:", error);
     }
+}
 
     function updatePassword() {
         const newChar = String.fromCharCode(97 + additionalChars.length);

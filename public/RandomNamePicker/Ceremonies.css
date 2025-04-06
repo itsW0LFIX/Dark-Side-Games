@@ -1,0 +1,160 @@
+/* <!-- Selection Ceremonies --> */
+    /* Holiday/Special Event Animations */
+    @keyframes halloween-bats {
+        0% {
+            transform: translateY(0) translateX(0) rotate(0deg);
+        }
+
+        25% {
+            transform: translateY(-15px) translateX(15px) rotate(10deg);
+        }
+
+        50% {
+            transform: translateY(-5px) translateX(-10px) rotate(-5deg);
+        }
+
+        75% {
+            transform: translateY(-20px) translateX(5px) rotate(15deg);
+        }
+
+        100% {
+            transform: translateY(0) translateX(0) rotate(0deg);
+        }
+    }
+
+    @keyframes christmas-snow {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+        }
+
+        50% {
+            transform: translateY(-10px) rotate(180deg);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+        }
+
+        100% {
+            transform: translateY(0) rotate(360deg);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+        }
+    }
+
+    @keyframes birthday-balloons {
+        0% {
+            transform: translateY(0);
+        }
+
+        40% {
+            transform: translateY(-15px) rotate(5deg);
+        }
+
+        50% {
+            transform: translateY(-18px) rotate(-5deg);
+        }
+
+        60% {
+            transform: translateY(-15px) rotate(5deg);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes new-year-fireworks {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+        }
+
+        25% {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+        }
+
+        50% {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(0, 0, 255, 0.7);
+        }
+
+        75% {
+            transform: scale(1.3);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+        }
+
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+        }
+    }
+
+    @keyframes valentine-hearts {
+        0% {
+            transform: scale(1);
+        }
+
+        25% {
+            transform: scale(1.3) rotate(-5deg);
+        }
+
+        50% {
+            transform: scale(1) rotate(0deg);
+        }
+
+        75% {
+            transform: scale(1.3) rotate(5deg);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    /* Apply themed animations */
+    .nameBlock.highlight.halloween-bats {
+        animation: halloween-bats 0.6s infinite;
+        background-color: rgba(255, 140, 0, 0.8) !important;
+    }
+
+    .nameBlock.highlight.christmas-snow {
+        animation: christmas-snow 1s infinite;
+        background-color: rgba(65, 105, 225, 0.8) !important;
+    }
+
+    .nameBlock.highlight.birthday-balloons {
+        animation: birthday-balloons 1s infinite;
+        background-color: rgba(255, 105, 180, 0.8) !important;
+    }
+
+    .nameBlock.highlight.new-year-fireworks {
+        animation: new-year-fireworks 1.2s infinite;
+        background-color: rgba(218, 165, 32, 0.8) !important;
+    }
+
+    .nameBlock.highlight.valentine-hearts {
+        animation: valentine-hearts 0.8s infinite;
+        background-color: rgba(220, 20, 60, 0.8) !important;
+    }
+
+    /* Themed confetti styles */
+    .confetti.halloween {
+        background-color: transparent !important;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path d="M5,0 L10,5 L5,10 L0,5 Z" fill="black"/></svg>');
+        background-size: contain;
+    }
+
+    .confetti.christmas {
+        background-color: transparent !important;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path d="M5,0 L6,3.5 L10,5 L6,6.5 L5,10 L4,6.5 L0,5 L4,3.5 Z" fill="white"/></svg>');
+        background-size: contain;
+    }
+
+    .confetti.birthday {
+        border-radius: 50%;
+    }
+
+    .confetti.valentine {
+        background-color: transparent !important;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path d="M5,3 C5,0 0,0 0,3 C0,6 5,9 5,9 C5,9 10,6 10,3 C10,0 5,0 5,3 Z" fill="%23FF69B4"/></svg>');
+        background-size: contain;
+    }

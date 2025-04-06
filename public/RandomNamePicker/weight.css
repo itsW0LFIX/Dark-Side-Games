@@ -1,0 +1,133 @@
+.weight-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 2px 6px;
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+
+.weight-instruction {
+    font-style: italic;
+    font-size: 0.9em;
+    margin-top: 0.5em;
+    color: #666;
+}
+
+/* Add a subtle indicator that name blocks are interactive when weights are enabled */
+#nameContainer.weights-enabled .nameBlock {
+    cursor: pointer;
+}
+
+#nameContainer.weights-enabled .nameBlock:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.weight-editor-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #2c3e50ef, #1a2736ef);
+    border-radius: 15px;
+    padding: 25px;
+    width: 300px;
+    color: white;
+    z-index: 1100;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border: 2px solid rgba(83, 83, 83, 0.596);
+}
+
+.weight-editor-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.weight-name {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #6a11cb;
+    font-weight: bold;
+    word-break: break-word;
+}
+
+.weight-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 15px 0;
+    color: #fff;
+}
+
+.weight-slider-container {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.weight-slider {
+    width: 100%;
+    height: 8px;
+    -webkit-appearance: none;
+    background: linear-gradient(to right, #50db34, #ce0505);
+    border-radius: 5px;
+    outline: none;
+}
+
+.weight-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.weight-editor-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.weight-editor-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.weight-save-button {
+    background: linear-gradient(45deg, #038b20, #3aca16);
+    color: white;
+}
+
+.weight-cancel-button {
+    background: linear-gradient(45deg, #720505, #b90303ee);
+    color: white;
+}
+
+.weight-editor-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 1099;
+}
+
+.name-highlight {
+    animation: highlight-pulse 1.5s infinite;
+}
+
+@keyframes highlight-pulse {
+    0% { box-shadow: 0 0 5px rgba(106, 17, 203, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(106, 17, 203, 1); }
+    100% { box-shadow: 0 0 5px rgba(106, 17, 203, 0.5); }
+}

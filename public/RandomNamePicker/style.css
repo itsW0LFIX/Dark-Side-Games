@@ -1,0 +1,602 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background: url("501c82db-88cb-43df-bc4d-0ac9044fb640.png") no-repeat center center fixed;
+    background-size: 100% 100%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    position: relative;
+}
+
+h2 {
+    color: #fff;
+    padding: 5px;
+    margin-top: -5PX;
+    font-size: 28px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #fff, transparent);
+}
+
+.main-container {
+    display: flex;
+    gap: 20px;
+}
+
+.input-column {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.display-column {
+    flex: 1.5;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#nameInput {
+    width: 90%;
+    height: 120px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 15px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.9);
+    resize: vertical;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.primary-btn {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+}
+
+.secondary-btn {
+    background-color: #635e5e;
+    color: white;
+}
+
+.settings-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.settings-btn:hover {
+    transform: rotate(90deg);
+    /* background-color: rgba(0, 0, 0, 0.5); */
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Replace the existing .nameBlock CSS with this */
+.nameBlock {
+    padding: 10px 15px;
+    background-color: rgba(52, 152, 219, 0.8);
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    max-width: fit-content;
+    height: auto;
+    min-height: 40px;
+    margin: 5px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    cursor: default;
+    word-break: break-word;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Modify the nameContainer to center items better */
+#nameContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.nameBlock:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.nameBlock.highlight {
+    animation: pulse 0.5s infinite alternate;
+}
+
+/* Animation styles */
+@keyframes pulse {
+    from {
+        transform: scale(1);
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    to {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg) scale(1.05);
+    }
+
+    to {
+        transform: rotate(360deg) scale(1.05);
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes flip {
+    0% {
+        transform: perspective(400px) rotateY(0);
+    }
+
+    50% {
+        transform: perspective(400px) rotateY(180deg);
+    }
+
+    100% {
+        transform: perspective(400px) rotateY(360deg);
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    50% {
+        transform: translateX(0);
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+/* Additional cool animations */
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.8);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(41, 128, 185, 1);
+    }
+
+    100% {
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.8);
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: rgba(52, 152, 219, 0.8);
+    }
+
+    25% {
+        background-color: rgba(155, 89, 182, 0.8);
+    }
+
+    50% {
+        background-color: rgba(231, 76, 60, 0.8);
+    }
+
+    75% {
+        background-color: rgba(46, 204, 113, 0.8);
+    }
+
+    100% {
+        background-color: rgba(52, 152, 219, 0.8);
+    }
+}
+
+@keyframes zigzag {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+
+    25% {
+        transform: translateX(10px) translateY(-10px);
+    }
+
+    50% {
+        transform: translateX(0) translateY(0);
+    }
+
+    75% {
+        transform: translateX(-10px) translateY(-10px);
+    }
+
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+/* Apply animations to highlights */
+.nameBlock.highlight.pulse {
+    animation: pulse 0.5s infinite alternate;
+}
+
+.nameBlock.highlight.spin {
+    animation: spin 0.8s infinite linear;
+}
+
+.nameBlock.highlight.bounce {
+    animation: bounce 0.6s infinite;
+}
+
+.nameBlock.highlight.flip {
+    animation: flip 1s infinite linear;
+}
+
+.nameBlock.highlight.shake {
+    animation: shake 0.3s infinite;
+}
+
+.nameBlock.highlight.glow {
+    animation: glowPulse 1s infinite;
+}
+
+.nameBlock.highlight.colorShift {
+    animation: colorChange 2s infinite;
+}
+
+.nameBlock.highlight.zigzag {
+    animation: zigzag 0.5s infinite;
+}
+
+#result {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px 25px;
+    border-radius: 15px;
+    opacity: 0;
+    transition: all 0.5s ease;
+    transform: translateY(20px);
+}
+
+#result.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.settings {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.settings label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.settings input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.settings input[type="number"],
+.settings select {
+    width: 60px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: #f0f;
+    animation: fall linear forwards;
+    z-index: 1000;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+#history {
+    margin-top: 20px;
+    width: 100%;
+    display: none;
+}
+
+#historyList {
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+/* Multiple winners section */
+.winners-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.winner-card {
+    padding: 15px;
+    background-color: rgba(46, 204, 113, 0.8);
+    border-radius: 10px;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.advanced-settings {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background-color: rgba(27, 27, 27, 0.774);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 0;
+    width: 80%;
+    max-width: 500px;
+    display: none;
+    opacity: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 40px rgba(31, 31, 31, 0.5);
+    backdrop-filter: blur(15px);
+    max-height: 80vh;
+    /* Add this to limit height */
+    overflow-y: auto;
+    /* Add this to enable vertical scrolling */
+}
+
+.advanced-settings.show {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.advanced-settings h3 {
+    margin-top: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.advanced-settings h3::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(to right,
+            transparent,
+            #6a11cb,
+            transparent);
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.setting-group h4 {
+    margin: 0;
+    color: #6a11cb;
+    font-size: 18px;
+}
+
+.setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.setting-row label {
+    font-size: 16px;
+}
+
+.setting-row select,
+.setting-row input {
+    background-color: rgba(17, 4, 4, 0.562);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 8px;
+    border-radius: 5px;
+}
+
+/* .close-settings {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    color: rgb(199, 16, 16);
+    text-decoration: none;
+    opacity: 0.5;
+    font-size: 16px;
+} */
+
+/* Style for the new close button */
+.close-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    text-align: center;
+    background: linear-gradient(45deg, #333, #666);
+}
+
+/* .close-settings:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+} */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+    display: none;
+}
+
+.overlay.show {
+    display: block;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .input-column,
+    .display-column {
+        width: 100%;
+    }
+
+    .nameBlock {
+        width: 100%;
+    }
+}

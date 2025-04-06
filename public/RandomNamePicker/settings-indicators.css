@@ -1,0 +1,65 @@
+    /* Settings indicators CSS */
+.setting-group {
+    position: relative;
+}
+
+.locked::after {
+    content: '🔒';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.new::after {
+    background-color: red;
+    color: #FFF;
+    content: 'NEW';
+    position: absolute;
+    font-weight: bolder;
+    top: 1rem;
+    right: 1rem;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.info-badge::after {
+    content: '!';
+    background-color: #888686;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 14px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Info tooltip styles */
+.info-tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 250px;
+    z-index: 100;
+    top: -10px;
+    right: 30px;
+    display: none;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.setting-group:hover .info-tooltip {
+    display: block;
+}

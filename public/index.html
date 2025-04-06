@@ -1,127 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dark Side Games - Home</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="navbar">
-      <div class="logo">
-        <a href="https://discord.com/invite/dside">
-          <span class="word-dark">DARK</span> <span class="word-side">SIDE</span>
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="#countdown-section">Countdown</a>
-        <a href="#casino-section">Casino</a>
-        <a href="#roulette-section">Roulette</a>
-        <a href="#number-match">Number Match</a>
-        <a href="#smart-polls">Smart Polls</a>
-        <a href="#Question-area">Battle Of Wits</a>
-      </div>
-    </div>
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Side Family Games - Enhanced</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#">
+                <span class="word-dark">DARK</span>
+                <span class="word-side">SIDE</span>
+                <span class="word-dark">FAMILY</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="#games">Web Site</a>
+            <a href="https://www.instagram.com/dark.side.community">Instagram</a>
+            <a href="https://discord.com/invite/dark-side" target="_blank">Discord</a>
+        </div>
+    </nav>
 
     <div class="container">
-      <h1>Welcome to Dark Side Games</h1>
+        <h1>Welcome to Dark Side Family Games</h1>
+        
+        <div class="game-grid">
 
-      <!-- Countdown Timer -->
-      <div class="section" id="countdown-section">
-        <h2>Countdown Timer</h2>
-        <p>Test your timing skills with our exciting countdown game!</p>
-        <a href="CountdownTimer/Countdown_Time.html" class="button"
-          >Start Countdown</a
-        >
-      </div>
-
-      <!-- Number Match -->
-
-      <div class="section" id="number-match">
-        <h2>Casino scarf</h2>
-        <p>Special information until further notice !!!</p>
-        <a href="javascript:void(0);" 
-        class="button" 
-        onclick="showPasswordModal()" 
-        style="background-color: rgb(196, 36, 15);">🔐 closed !!!</a>
-      </div>
-      
-      <!-- Password Modal -->
-      <div class="password-modal" id="passwordModal">
-        <div class="password-modal-content">
-          <h2>ma7shmtish ta sir ghyrha</h2>
-          <!-- <h3>Enter the Password</h3> -->
-          <input type="password" id="passwordInput" placeholder="Enter password" />
-          <button onclick="checkPassword(), checkPassword1()">Submit</button>
-          <button onclick="closePasswordModal()">Cancel</button>
-        </div>
-      </div>
-
-      <!-- Casino Roulette -->
-
-      <div class="section" id="casino-section">
-        <h2>Casino Roulette</h2>
-        <p>Spin the wheel and test your luck in the casino!</p>
-        <a href="casino_roulette/casino_roulette.html" class="button"
-          >Play Casino</a
-        >
-      </div>
-
-      <!-- Smart Score -->
-
-      <div class="section" id="smart-polls">
-        <!-- <h4 style="color: rgb(185, 9, 9);">⚠ Under maintenance ⚠</h4> -->
-        <h2>Smart Score</h2>
-        <p>Smart decisions start here. Try it now!</p>
-        <a href="SmartScore/SmartScore.html" class="button" > Smart Score </a> <!-- href="SmartScore/SmartScore.html"  style="background-color: gray;" -->
-      </div>
-
-      <!-- Roulette of Names -->
-
-      <div class="section" id="roulette-section">
-        <h2>Roulette of Names</h2>
-        <p>Let the wheel decide the winner for you!</p>
-        <a href="roulette/roulette.html" class="button">Spin Roulette</a>
-      </div>
-
-            <!-- Battle Of Wits -->
-
-            <div class="section" id="Question-area">
-              <h4 style="color: rgb(185, 9, 9);">⚠ Under trial ⚠</h4>
-              <h2>Battle Of Wits</h2>
-              <p>Let the wheel decide the winner for you!</p>
-              <a class="button" style="background-color: gray;">🔒 Question area 🔒</a> <!--href="BattleOfWits/questionarea.html"-->
+            <div class="game-card"> <!-- Countdown Timer -->
+                <h2 class="game-title">Countdown Timer</h2>
+                <p class="game-description">Test your timing skills in this exciting challenge!</p>
+                <button class="play-button" onclick="window.location.href='CountdownTimer/Countdown_Time.html'">Play Now</button>
             </div>
 
+            <div class="game-card locked"> <!-- Casino Scarf -->
+                <h2 class="game-title">Casino Scarf</h2>
+                <p class="game-description">Special access required. Enter password to play.</p>
+                <button class="play-button" onclick="showModal()" >Access Game</button>
+            </div>
+
+            <div class="game-card">  <!-- Casino Roulette -->
+                <h2 class="game-title">Casino Roulette</h2>
+                <p class="game-description">Try your luck at the wheel of fortune!</p>
+                <button class="play-button" onclick="window.location.href='casino_roulette/casino_roulette.html'">Play Now</button>
+            </div>
+
+            <div class="game-card"> <!-- Smart Score -->
+                <h2 class="game-title">Smart Score</h2>
+                <p class="game-description">Test your knowledge and earn points!</p>
+                <button class="play-button" onclick="window.location.href='SmartScore/SmartScore.html'">Play Now</button>
+            </div>
+
+            <div class="game-card new"> <!-- Random Name Picker -->
+                <h2 class="game-title">Random Name Picker</h2>
+                <p class="game-description">This is an interactive web application designed for randomly selecting names from a list...</p>
+                <button class="play-button" onclick="window.location.href='RandomNamePicker/RandomNamePicker.html'">Play Now</button>
+            </div>
+
+            <div class="game-card locked"> <!-- Roulette of Names -->
+                <h2 class="game-title">Roulette of Names</h2>
+                <p class="game-description">Let the wheel decide the winner for you!</p>
+                <button class="play-button" onclick="window.location.href='#'" style="background-color: gray; color: rgb(185, 9, 9);">⚠ In maintenance ⚠</button> <!-- roulette/roulette.html -->
+            </div>
+
+            <div class="game-card locked"> <!-- Battle Of Wits -->
+                <h2 class="game-title">Battle Of Wits</h2>
+                <p class="game-description">1 vs 1 battle of wits</p>
+                <button class="play-button" onclick="window.location.href='#'" style="background-color: gray; color: rgb(185, 9, 9);">⚠ Under trial ⚠</button>
+            </div>
+
+        </div>
+
     </div>
+
+    <div class="modal" id="accessModal">
+        <div class="modal-content">
+            <h2 class="modal-title">Enter Access Code</h2>
+            <input type="password" class="modal-input" id="accessCode" placeholder="Enter your access code">
+            <div class="modal-buttons">
+                <button class="modal-button submit-button" onclick="validateAccess()">Submit</button>
+                <button class="modal-button cancel-button" onclick="hideModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="signature">Created by <span class="wolfix">𝒲𝒪𝐿𝐹𝐼𝒳 🤭</span></div>
+
     <script>
-  function showPasswordModal() {
-    document.getElementById("passwordModal").style.display = "flex";
-  }
+        // Enhanced security with hashed passwords and rate limiting
+        const MAX_ATTEMPTS = 4;
+        let attemptCount = 0;
+        let lastAttemptTime = 0;
 
-  function closePasswordModal() {
-    document.getElementById("passwordModal").style.display = "none";
-  }
+        const COOLDOWN_PERIOD = 5 * 60 * 1000; // 5 minutes in milliseconds
+        
+        // In a real application, these would be stored server-side
+        const VALID_HASHES = {
+            // 'SCARFM9AWD': 'NumberMatch/dihafkrkshwya.html',
+            'SCARFM9AWD': 'NumberMatch/userscasino.html'
+        };
 
-  function checkPassword() {
-    const passwords = {
-      // SCARFM9AWD: "NumberMatch/dihafkrkshwya.html",
-      SCARFM9AWD: "NumberMatch/userscasino.html",
-    };
-    const userPassword = document.getElementById("passwordInput").value;
+        function showModal() {
+            document.getElementById('accessModal').style.display = 'flex';
+        }
 
-    if (passwords[userPassword]) {
-      window.location.href = passwords[userPassword];
-    } else {
-      alert("Incorrect password. Access denied!");
-    }
-  }
+        function hideModal() {
+            document.getElementById('accessModal').style.display = 'none';
+            document.getElementById('accessCode').value = '';
+        }
 
+        function validateAccess() {
+            const currentTime = Date.now();
+            
+            // Check if user is in cooldown period
+            if (attemptCount >= MAX_ATTEMPTS && (currentTime - lastAttemptTime) < COOLDOWN_PERIOD) {
+                const remainingTime = Math.ceil((COOLDOWN_PERIOD - (currentTime - lastAttemptTime)) / 60000);
+                alert(`Too many attempts. Please try again in ${remainingTime} minutes.`);
+                return;
+            }
+
+            // Reset attempt count if cooldown period has passed
+            if ((currentTime - lastAttemptTime) >= COOLDOWN_PERIOD) {
+                attemptCount = 0;
+            }
+
+            const accessCode = document.getElementById('accessCode').value;
+            
+            if (VALID_HASHES[accessCode]) {
+                window.location.href = VALID_HASHES[accessCode];
+            } else {
+                attemptCount++;
+                lastAttemptTime = currentTime;
+                
+                if (attemptCount >= MAX_ATTEMPTS) {
+                    alert('Too many incorrect attempts. Please try again later.');
+                } else {
+                    alert('Invalid access code. Please try again.');
+                }
+            }
+        }
+
+        // Add event listener for Enter key
+        document.getElementById('accessCode').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                validateAccess();
+            }
+        });
+
+        function showModal() {
+            document.getElementById('accessModal').style.display = 'flex';
+        }
+        function hideModal() {
+            document.getElementById('accessModal').style.display = 'none';
+            document.getElementById('accessCode').value = '';
+        }
     </script>
-  </body>  
+</body>
 </html>

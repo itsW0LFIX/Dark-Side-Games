@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enhanced Random Name Picker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Ceremonies.css">
+    <link rel="stylesheet" href="backgroundImage.css">
+    <link rel="stylesheet" href="weight.css">
+    <link rel="stylesheet" href="Excluded.css">
+    <link rel="stylesheet" href="settings-indicators.css">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <h2>Enhanced Random Name Picker</h2>
+
+        <div class="main-container">
+            <div class="input-column">
+                <div class="input-container">
+                    <textarea id="nameInput" placeholder="Enter names, one per line..."></textarea>
+                    <div class="buttons">
+                        <button class="primary-btn" onclick="pickRandom()">
+                            Pick Random Name
+                        </button>
+                        <button class="secondary-btn" onclick="saveNames()">
+                            Save List
+                        </button>
+                        <button class="secondary-btn" onclick="loadNames()">
+                            Load List
+                        </button>
+                        <button class="secondary-btn" onclick="clearNames()">
+                            Clear All
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings">
+                    <label>
+                        <input type="checkbox" id="removeSelected" checked />
+                        Remove selected name
+                    </label>
+
+                    <label>
+                        <input type="checkbox" id="showConfetti" checked />
+                        Show celebration
+                    </label>
+                    <label>
+                        <input type="checkbox" id="trackHistory" onchange="toggleHistory()" />
+                        Track selection history
+                    </label>
+                </div>
+
+                <div id="history">
+                    <h3>Selection History</h3>
+                    <div id="historyList"></div>
+                </div>
+            </div>
+
+            <div class="display-column">
+                <div class="settings-btn" onclick="toggleAdvancedSettings()">⚙️</div>
+                <div id="nameContainer"></div>
+                <div id="result"></div>
+                <div id="winnersContainer" class="winners-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay backdrop for modal -->
+    <div class="overlay" id="settingsOverlay"></div>
+
+    <!-- Advanced Settings as modal -->
+    <div class="advanced-settings" id="advancedSettings">
+        <!-- <a href="#" class="close-settings" onclick="toggleAdvancedSettings()">X</a> -->
+        <h3>Advanced Settings</h3>
+
+        <div class="setting-group">
+            <h4>Animation Style</h4>
+            <div class="setting-row">
+                <label for="animationStyle">Selection Animation:</label>
+                <select id="animationStyle">
+                    <option value="pulse">Pulse</option>
+                    <option value="spin">Spin</option>
+                    <option value="bounce">Bounce</option>
+                    <option value="flip">Flip</option>
+                    <option value="shake">Shake</option>
+                    <option value="glow">Glow</option>
+                    <option value="colorShift">Color Shift</option>
+                    <option value="zigzag">Zig Zag</option>
+                </select>
+            </div>
+            <div class="setting-row">
+                <label for="animationDuration">Animation Duration (seconds):</label>
+                <input type="number" id="animationDuration" min="1" max="10" value="3" step="0.5" />
+            </div>
+            <div class="setting-row">
+                <label for="animationSpeed">Animation Speed:</label>
+                <select id="animationSpeed">
+                    <option value="slow">Slow</option>
+                    <option value="normal" selected>Normal</option>
+                    <option value="fast">Fast</option>
+                    <option value="random">Random</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="setting-group">
+            <h4>Multiple Winners</h4>
+            <div class="setting-row">
+                <label for="winnerCount">Number of Winners:</label>
+                <input type="number" id="winnerCount" min="1" max="10" value="1" />
+            </div>
+        </div>
+
+        <div class="setting-group">
+            <h4>Weighted Selection</h4>
+            <div class="setting-row">
+                <label for="useWeights">Use weighted selection:</label>
+                <input type="checkbox" id="useWeights" onchange="toggleWeightControls()">
+            </div>
+            <div id="weightControls" style="display: none;">
+                <p class="weight-instruction">Double-click on any name block to set its weight</p>
+            </div>
+        </div>
+
+        <!-- Custom Backgrounds -->
+        <div class="setting-group">
+            <h4>Theme Selection</h4>
+            <div class="setting-row">
+                <label for="ceremonyTheme">Selection Ceremony Theme:</label>
+                <select id="ceremonyTheme">
+                    <option value="none">None</option>
+                    <option value="halloween">Halloween</option>
+                    <option value="christmas">Christmas</option>
+                    <option value="birthday">Birthday</option>
+                    <option value="new-year">New Year</option>
+                    <option value="valentine">Valentine's Day</option>
+                </select>
+            </div>
+
+
+        </div>
+        <!-- Custom Backgrounds -->
+        <div class="setting-group">
+            <h4>Custom Background</h4>
+            <div class="setting-row">
+                <label for="backgroundOption">Background Type:</label>
+                <select id="backgroundOption" onchange="toggleBackgroundOptions()">
+                    <option value="default">Default</option>
+                    <option value="custom">Upload Image</option>
+                    <option value="gallery">Gallery</option>
+                </select>
+            </div>
+            <!-- Replace the existing customBackgroundRow div with this -->
+            <div id="customBackgroundRow" class="setting-row" style="display: none;">
+                <label for="customBackground">Upload Image:</label>
+                <div class="file-input-container">
+                    <button type="button" class="file-select-btn"
+                        onclick="document.getElementById('customBackground').click()">Choose File</button>
+                    <span class="file-name">No file chosen</span>
+                    <input type="file" id="customBackground" accept="image/*" onchange="updateBackground(event)"
+                        style="display: none;">
+                </div>
+            </div>
+            <div id="galleryBackgroundRow" class="setting-row" style="display: none">
+                <label for="galleryBackground">Choose Theme:</label>
+                <select id="galleryBackground" onchange="updateGalleryBackground()">
+                    <option value="geometric">Geometric</option>
+                    <option value="gradient">Gradient</option>
+                    <option value="confetti">Confetti</option>
+                    <option value="stars">Stars</option>
+                    <option value="abstract">Abstract</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="primary-btn close-btn" onclick="toggleAdvancedSettings()">Close Settings</button>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Ceremonies -->
+    <script src="Ceremonies.js"></script>
+    <!-- Custom Backgrounds -->
+    <script src="backgroundImage.js"></script>
+    <!-- Settings Indicators -->
+    <script src="settings-indicators.js"></script>
+
+
+
+</body>
+
+</html>
