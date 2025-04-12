@@ -15,6 +15,8 @@ You can access the games here: [HERE](https://dark-side-games.web.app/)
 - Smart Score
 - Bettle Of Wits
 - Random Name Picker
+- Virtual Scratch-off Cards
+
 
 ### Requirements
 
@@ -30,5 +32,6 @@ You can access the games here: [HERE](https://dark-side-games.web.app/)
 5. **Number Match**: Add the numbers you want to play with and then play roulette.
 5. **Bettle Of Wits**: add names of teams, timing of answer and max points of winning and start battle of wits.
 5. **Random Name Picker**: This is an interactive web application designed for randomly selecting names from a list....
+5. **Virtual Scratch-off Cards**: This is a fun web app that lets users create virtual scratch-off cards with custom gifts or messages
 
 
