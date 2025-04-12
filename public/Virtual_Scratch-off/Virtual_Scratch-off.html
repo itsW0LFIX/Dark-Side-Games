@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Generator & Scratch-Off Cards</title>
+    <link rel="stylesheet" href="Virtual_Scratch-off.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="theme-toggle">
+            <span>Dark Mode</span>
+            <input type="checkbox" id="theme-toggle">
+            <label for="theme-toggle"></label>
+        </div>
+
+        <h1 id="title">HA HIA L3BA W MOSHARAKA</h1>
+        <h2 id="title-1">' AY YYYY SHWIA 3LA LWA7D '</h2>
+        <div class="game-container">
+            <button id="scratch-off-btn">Virtual Scratch-Off</button>
+        </div>
+
+        <div id="settings-section" class="gift-settings">
+            <h2>Gift Settings</h2>
+
+            <label class="gift-input" for="gift-input">Add Gifts/Messages (one per line):</label>
+            <textarea id="gift-input" placeholder="Enter gifts or messages here, one per line"></textarea>
+            <div class="demo-gifts">
+                <button class="demo-gift-btn"
+                    data-gifts="خرج واحد - 2M,خرج ثلاثه ديال الناس - 6M,خرج خمسه ديال الناس - 10M,خرج 10 ديال الناس - 30M,تخرج انت ولا يخرج لون كامل,خرج لون كامل - 10M,خرج اللي فوق منك ولي تحت منك في الروليت - 4M,خرج جوج بنات - 4M,اختار واحد اول واحده يخرج نهائيا من رولات - 20M,دخل جوج ديال الناس - 2M,دخل سته ديال الناس - 6M,دخل البنت وولد - 4M,خرج انت ودخل خمسه في بلاصتك - 6M,خرج جوج ودخل جوج - 4M,Shield - 50M,armor vest - 15M,غني لنا لنا بوس الواوا - 15M,حميدو الولد الشرقية - 15M,حل الكاميرا نشوفك - 15M,محاوله اخرى خلي البوت يختار بلاصتك - 5M">Quick
+                    Demo: KAFALA</button>
+                <button class="demo-gift-btn"
+                    data-gifts="Free hugs anytime,I'll do the dishes for a week,Breakfast in bed,Movie night - your choice,One hour of uninterrupted me-time,I'll clean the house">Quick
+                    Demo: Love Coupons</button>
+            </div>
+            <p class="help-text">Changes are saved automatically. Each line will become a separate gift item.</p>
+
+
+
+            <div class="bg-settings">
+                <h3>Background Settings</h3>
+                <div class="color-options">
+                    <div class="color-option active" style="background-color: #f0f2f5;" data-color="#f0f2f5"></div>
+                    <div class="color-option" style="background-color: #82dae7;" data-color="#82dae7"></div>
+                    <div class="color-option" style="background-color: #e7d18a;" data-color="#e7d18a"></div>
+                    <div class="color-option" style="background-color: #e2a8eb;" data-color="#e2a8eb"></div>
+                    <div class="color-option" style="background-color: #83e28c;" data-color="#83e28c"></div>
+                    <div class="color-option" style="background-color: #97c7ee;" data-color="#97c7ee"></div>
+                </div>
+
+                <div class="bg-image-upload">
+                    <h4 class="h4-image-upload">Background Image</h4>
+                    <label for="bg-image-upload" class="file-upload-btn">
+                        📷 <span>Choose Image</span>
+                    </label>
+                    <input type="file" id="bg-image-upload" accept="image/*">
+                    <div id="bg-image-preview" class="bg-image-preview"></div>
+                    <div class="bg-image-buttons">
+                        <button id="apply-bg-image" disabled>Apply Image</button>
+                        <button id="remove-bg-image" class="remove" disabled>Remove Image</button>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="bg-upload-progress"></div>
+                    </div>
+                    <p class="help-text">Upload an image to use as background for the entire game.</p>
+                </div>
+            </div>
+
+            <div class="image-settings">
+                <h3>Scratch-off Image Settings</h3>
+                <div class="image-upload" id="image-upload-section">
+                    <label for="image-upload" class="file-upload-btn">
+                        🖼️ <span>Select Scratch Images</span>
+                    </label>
+                    <input type="file" id="image-upload" accept="image/*" multiple>
+                    <p class="help-text">You can select multiple images. These images will be used as scratch-off
+                        layers.</p>
+                    <p class="help-text">If no images are selected, a colorful scratch-off layer will be used.</p>
+                    <div id="image-previews" class="image-previews"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="game-output" class="game-output" style="display: none;">
+            <button id="fullscreen-btn" class="control-btn">
+                <span id="fullscreen-icon">⛶</span>
+                <span id="fullscreen-text">Fullscreen</span>
+            </button>
+            <div id="boxes"></div>
+        </div>
+
+    </div>
+
+    <div id="zoom-modal" class="zoom-modal">
+        <div class="zoom-content">
+            <span class="zoom-close">&times;</span>
+            <div class="zoomed-prize" id="zoomed-prize-content"></div>
+        </div>
+    </div>
+
+    <script src="Virtual_Scratch-off.js"></script>
+</body>
+
+</html>
